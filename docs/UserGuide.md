@@ -361,6 +361,22 @@ Format: `tag/create t/TAG_NAME`
 >* `TAG_NAME` has a maximum length of 100 characters.
 >* Spaces are not allowed.
 
+<div markdown="block" class="alert alert-info">
+**Tag & Group name validation (quick reference)**
+
+* Allowed characters: letters, digits, hyphen (-), underscore (_), slash (/).
+* No spaces are allowed — use `_` or `-` instead.
+* Maximum length: 100 characters.
+* Matching is case-insensitive (e.g. `friends` == `Friends`).
+
+Use these rules when creating tags or groups (commands: `tag/create`, `group/create`).
+</div>
+
+### Visual appearance of tags and groups
+
+* Tags and groups are displayed as small labels beside a student's name and details.
+* Tags are shown in a darker cyan colour and groups are shown in a lighter cyan colour; otherwise they appear in the same label style.
+
 --------------------------------------------------------------------------------------------------------------------
 ### Delete Tag: `tag/delete`
 
