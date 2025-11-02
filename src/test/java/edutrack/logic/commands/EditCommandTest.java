@@ -55,6 +55,12 @@ public class EditCommandTest {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
+        // Ensure the tag exists in the model
+        edutrack.model.tag.Tag husbandTag = new edutrack.model.tag.Tag(VALID_TAG_HUSBAND);
+        if (!model.hasTag(husbandTag)) {
+            model.addTag(husbandTag);
+        }
+
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
@@ -165,7 +171,12 @@ public class EditCommandTest {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
-        // VALID_TAG_HUSBAND should exist in typical address book
+        // Ensure the tag exists in the model
+        edutrack.model.tag.Tag husbandTag = new edutrack.model.tag.Tag(VALID_TAG_HUSBAND);
+        if (!model.hasTag(husbandTag)) {
+            model.addTag(husbandTag);
+        }
+
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withTags(VALID_TAG_HUSBAND).build();
 
