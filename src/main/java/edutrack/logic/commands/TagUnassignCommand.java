@@ -68,7 +68,9 @@ public class TagUnassignCommand extends Command {
                 personToEdit.getEmail(),
                 personToEdit.getAddress(),
                 updatedTags,
-                personToEdit.getGroups());
+                personToEdit.getGroups(),
+                personToEdit.getNote()
+        );
 
         model.setPerson(personToEdit, editedPerson);
 

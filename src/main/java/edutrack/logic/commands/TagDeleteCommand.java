@@ -58,7 +58,8 @@ public class TagDeleteCommand extends Command {
                         person.getEmail(),
                         person.getAddress(),
                         updatedTags,
-                        person.getGroups()
+                        person.getGroups(),
+                        person.getNote()
                 );
 
                 model.setPerson(person, updatedPerson);
