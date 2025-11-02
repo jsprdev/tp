@@ -211,15 +211,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | tutor         | sort by day                                                                              | know which groups I have for that day              |
 | `* *`    | tutor         | archive students                                                                         | view current vs past students                      |
 | `* *`    | tutor         | filter students by performance metrics                                                   | identify weaker students.                          |
-| `* *`    | tutor         | record participation (e.g., "active," "quiet," "needs improvement")                      | monitor engagement.                                |
-| `* *`    | tutor         | be able to filter between students that need more help and students that are on schedule | take a glance                                      |
+| `* *`    | tutor         | record participation (e.g., "active," "quiet," "needs improvement")                      | track and assess student engagement.                |
+| `* *`    | tutor         | filter students to identify those that need more help versus those on schedule           | quickly identify at-risk students                  |
 | `* *`    | tutor         | add the contact details of my student                                                    | contact them                                       |
 | `* *`    | tutor         | edit the contact details of my student                                                   | have accurate info                                 |
 | `* *`    | busy tutor    | track the assignments that I have given out                                              | know when to expect work to be handed in.          |
 | `* *`    | busy tutor    | take attendance easily                                                                   | spend more time teaching in class.                 |
 | `* *`    | private tutor | track student addresses                                                                  | go to their house                                  |
-| `* *`    | private tutor | track payments                                                                           | identify current students                          |
-| `*`      | tutor         | create events for classes and office hours                                               | am organized                                       |
+| `* *`    | private tutor | track payments                                                                           | keep track of current students                     |
+| `*`      | tutor         | create events for classes and office hours                                               | keep track of my events                            |
 | `*`      | tutor         | record test and assignment scores                                                        | track academic progress.                           |
 | `*`      | tutor         | export attendance and progress reports                                                   | share them with parents or institutions.           |
 | `*`      | tutor         | filter reports by timeframe (e.g., monthly / termly)                                     | measure improvement over periods.                  |
