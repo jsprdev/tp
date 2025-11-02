@@ -69,7 +69,8 @@ public class GroupDeleteCommand extends Command {
                         person.getEmail(),
                         person.getAddress(),
                         person.getTags(),
-                        updatedGroups
+                        updatedGroups,
+                        person.getNote()
                 );
 
                 model.setPerson(person, updatedPerson);
