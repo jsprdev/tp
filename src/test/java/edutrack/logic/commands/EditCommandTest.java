@@ -55,6 +55,12 @@ public class EditCommandTest {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
+        // Ensure the tag exists in the model
+        edutrack.model.tag.Tag husbandTag = new edutrack.model.tag.Tag(VALID_TAG_HUSBAND);
+        if (!model.hasTag(husbandTag)) {
+            model.addTag(husbandTag);
+        }
+
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
@@ -140,6 +146,41 @@ public class EditCommandTest {
         Person editedPerson = personInList.withGroup("CS2103T").build();
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withGroups("CS2103T").build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(lastPerson, editedPerson);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_editWithNonExistentTag_failure() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withTags("NonExistentTag").build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+
+        assertCommandFailure(editCommand, model,
+                "Tags do not exist: NonExistentTag. Please create them first using tag/create.");
+    }
+
+    @Test
+    public void execute_editWithExistingTag_success() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+
+        // Ensure the tag exists in the model
+        edutrack.model.tag.Tag husbandTag = new edutrack.model.tag.Tag(VALID_TAG_HUSBAND);
+        if (!model.hasTag(husbandTag)) {
+            model.addTag(husbandTag);
+        }
+
+        PersonBuilder personInList = new PersonBuilder(lastPerson);
+        Person editedPerson = personInList.withTags(VALID_TAG_HUSBAND).build();
+
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withTags(VALID_TAG_HUSBAND).build();
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
