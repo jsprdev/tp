@@ -208,18 +208,19 @@ By name: `find n/KEYWORD [MORE_KEYWORDS]...`
 By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 
 #### Notes:
->* Exactly one of n/ or g/ must be present.
->* Keywords/Group names are separated by spaces.
->* The search is case-insensitive. e.g `hans` will match `Hans`.
->* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
->* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
->* Group search matches group names assigned to the student.
->* Students matching at least one keyword will be returned (i.e. `OR` search).
-   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
+* Exactly one of n/ or g/ must be present.
+* Keywords/Group names are separated by spaces.
+* The search is case-insensitive. e.g `hans` will match `Hans`.
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
+* Group search matches full words in group names assigned to the student (no partial matches).
+* Only one `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
+* Students matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
 #### Examples:
-* `find n/ John` returns `john` and `John Doe`
-* `find n/ alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find n/John` returns `john` and `John Doe`
+* `find n/alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 * `find g/CS2103T` returns all students in group “CS2103T”
