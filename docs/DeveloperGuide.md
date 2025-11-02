@@ -362,7 +362,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **System**: The EduTrack application itself, referring to automated processes performed by the software.
+* **Actor**: The user interacting with EduTrack (typically a tutor or administrator).
+* **Entity**: A core data object in EduTrack, such as `Person`, `Group`, or `Tag`.
+* **Filter/Predicate**: A condition used to select a subset of persons from the full list (e.g., searching by name or group).
+* **Cascade Delete**: An automatic operation where deleting a group or tag also removes it from all assigned persons.
+* **CLI**: Command Line Interface; a text-based interface where users type commands rather than clicking buttons.
+* **AddressBook** (Legacy): The predecessor application upon which EduTrack was based; now referred to as EduTrack.
+* **Unsynced Platforms**: Multiple separate systems or trackers (not connected to each other) that do not share or update data between them.
 
 --------------------------------------------------------------------------------------------------------------------
 
