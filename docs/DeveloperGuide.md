@@ -351,8 +351,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+2.  Should be able to complete commands within 500ms for typical operations (add, delete, find) when handling up to 1000 persons.
+3.  A user with above-average typing speed (around 50-70 words per minute for regular English text) should be able to accomplish a standard workflow (add, find, edit) faster using commands than using the mouse.
 4.  Should be able to start up within 3 seconds on a typical modern computer.
 5.  The application should use less than 500MB of memory while running on a typical modern computer.
 6.  All error messages must be clear and actionable for end users.
