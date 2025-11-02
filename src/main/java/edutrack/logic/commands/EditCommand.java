@@ -60,6 +60,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
     public static final String MESSAGE_GROUP_NOT_FOUND =
             "Groups do not exist: %s. Please create them first using group/create.";
+    public static final String MESSAGE_TAG_NOT_FOUND =
+            "Tags do not exist: %s. Please create them first using tag/create.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -112,13 +114,33 @@ public class EditCommand extends Command {
             throw new CommandException(String.format(MESSAGE_GROUP_NOT_FOUND, groupNames));
         }
 
-        // Create person with centrally tracked groups and preserve note
+        // Validate all tags exist in the model and get central references
+        Set<Tag> nonExistentTags = new HashSet<>();
+        Set<Tag> centralTags = new HashSet<>();
+
+        for (Tag tag : editedPerson.getTags()) {
+            if (!model.hasTag(tag)) {
+                nonExistentTags.add(tag);
+            } else {
+                // Get the centrally tracked Tag object
+                centralTags.add(model.getTag(tag));
+            }
+        }
+
+        if (!nonExistentTags.isEmpty()) {
+            String tagNames = nonExistentTags.stream()
+                    .map(t -> t.tagName)
+                    .collect(Collectors.joining(", "));
+            throw new CommandException(String.format(MESSAGE_TAG_NOT_FOUND, tagNames));
+        }
+
+        // Create person with centrally tracked groups and tags
         Person personWithCentralGroups = new Person(
                 editedPerson.getName(),
                 editedPerson.getPhone(),
                 editedPerson.getEmail(),
                 editedPerson.getAddress(),
-                editedPerson.getTags(),
+                centralTags,
                 centralGroups,
                 editedPerson.getNote()
         );
