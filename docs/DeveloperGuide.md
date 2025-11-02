@@ -236,7 +236,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS:**
 
-1.  User requests to add a new person.
+1.  User inputs person details to be added.
 2.  System validates relevant parameters.
 3.  System adds the person.
 4.  System confirms that person has been added.
@@ -256,6 +256,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: Delete a person**
 
+**Preconditions:**
+- At least one person exists in the address book.
+
 **MSS:**
 
 1.  User requests to delete a specific person in the list.
@@ -265,17 +268,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list of persons in address book is empty.
+* 2a. The parameter is invalid.
+    * 2b1. System rejects the deletion and displays an appropriate error message.
 
     Use case ends.
-
-* 2b. The parameter is invalid.
-    * 2b1. System rejects the deletion and displays an appropriate error message.
 
 **Use case: Search for a Person by Parameter**
 
 **Preconditions:**
-- The persons list is not empty.
+- At least one person exists in the address book.
 
 **MSS:**
 
@@ -289,9 +290,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. No parameter provided.
   * 1a1. System prompts User to provide a parameter.
+    
+    Use case ends.
 
 * 3a. No matching persons found
   * 3a1. System informs the User that no results were found.
+    
+    Use case ends.
 
 **Use case: Create a Group or Tag**
 
@@ -306,10 +311,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions:**
 * 2a. Invalid group or tag name
   * 2a1. System rejects the request and shows an appropriate error message.
+    
+    Use case ends.
+
 * 2b. Group or tag name already exists
   * 2b1. System rejects the request to prevent duplicates.
+    
+    Use case ends.
+    
 * 2c. No name provided
   * 2c1. System asks the user to input a valid name.
+    
+    Use case ends.
 
 **Use case: Assign Persons to a Group or Tag**
 
@@ -320,16 +333,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to assign one or more persons to an existing group or tag.
 2. System verifies that the specified group or tag exists.
 3. System validates that the referenced persons exist.
-4. System assigns those persons to the group or tag.
-5. System confirms that the persons were successfully added to the group or tag.
+4. System validates that the persons are not already assigned to the group or tag.
+5. System assigns those persons to the group or tag.
+6. System confirms that the persons were successfully added to the group or tag.
+
+   Use case ends.
 
 **Extensions:**
 - 2a. The specified group or tag does not exist
   - 2a1. System informs the user that the group is invalid.
+    
+    Use case ends.
 - 3a. One or more person references are invalid
   - 3a1. System informs the user which entries are invalid.
+    
+    Use case ends.
 - 4a. Some persons are already assigned to the group or tag
   - 4a1. System informs the user about the duplicates and rejects the assignment.
+    
+    Use case ends.
 
 **Use case: Unassign a Person from a Group or Tag**
 
