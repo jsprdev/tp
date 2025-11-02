@@ -151,6 +151,36 @@ public class EditCommandTest {
     }
 
     @Test
+    public void execute_editWithNonExistentTag_failure() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withTags("NonExistentTag").build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+
+        assertCommandFailure(editCommand, model,
+                "Tags do not exist: NonExistentTag. Please create them first using tag/create.");
+    }
+
+    @Test
+    public void execute_editWithExistingTag_success() {
+        Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
+        Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+
+        // VALID_TAG_HUSBAND should exist in typical address book
+        PersonBuilder personInList = new PersonBuilder(lastPerson);
+        Person editedPerson = personInList.withTags(VALID_TAG_HUSBAND).build();
+
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withTags(VALID_TAG_HUSBAND).build();
+        EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(lastPerson, editedPerson);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
     public void execute_duplicatePersonUnfilteredList_failure() {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(firstPerson).build();
