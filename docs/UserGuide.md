@@ -171,29 +171,34 @@ Format: `list`
 
 Edits the information of an existing student in the address book, allowing you to update their details or correct any mistakes.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GROUP]...`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]`
 
 #### Notes:
->* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
->* At least one of the optional fields must be provided.
->* Existing values will be updated to the input values.
->* To manage tags, use the `tag/assign` and `tag/unassign` commands instead.
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* Editing tags using the `edit` command is supported via the `t/` prefix. Providing one or more `t/TAG` values replaces the student's existing tags with the given set.
+  * To clear all tags, include `t/` with no value (for example: `edit 2 t/`).
+* Editing groups using the `edit` command is supported via the `g/` prefix. Providing one or more `g/GROUP` values replaces the student's existing groups with the given set.
+  * To clear all groups, include `g/` with no value (for example: `edit 2 g/`).
+
+* Note: the `edit` command replaces the student's entire tag and group sets when `t/` or `g/` are provided. If you want to add or remove a single tag or group without replacing the full set, use `tag/assign` / `tag/unassign` or `group/assign` / `group/unassign` respectively.
 
 <div markdown="block" class="alert alert-warning">
 
 **Important: Editing Groups**
 
-* When editing groups, the existing groups of the student will be removed.
+* When editing groups, the existing groups of the student will be removed and replaced by the groups supplied in the command.
 
-  i.e if you wish to edit a student that already has group `CS2103T`, you have to include `CS2103T` again if you wish to keep it.
+  i.e. if you wish to edit a student that already has group `CS2103T`, you must include `g/CS2103T` again if you wish to keep it.
 * You can remove all the student's groups by typing `g/` without specifying any groups after it.
 
 </div>
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
-*  `edit 2 n/Betsy Crower g/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
+* `edit 1 p/91234567 e/johndoe@example.com` — Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+* `edit 2 n/Betsy Crower t/` — Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+* `edit 2 n/Betsy Crower g/` — Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
 
 --------------------------------------------------------------------------------------------------------------------
 ### Locating by name or group: `find`
