@@ -51,7 +51,8 @@ public class TagUnassignCommandTest {
                 personToEdit.getEmail(),
                 personToEdit.getAddress(),
                 updatedTags,
-                personToEdit.getGroups());
+                personToEdit.getGroups(),
+                personToEdit.getNote());
         expectedModel.setPerson(personToEdit, expectedPerson);
 
         // Then unassign it
