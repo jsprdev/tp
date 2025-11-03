@@ -700,7 +700,24 @@ Currently, if you try to assign a valid group to a valid and existing student, t
 
 In the future, a better way to handle this would be to display an error message to clearly state the issue here.
 
-4.
+4. **Standardise format of error messages**
+
+Currently, some commands have inconsistent error messages.
+
+Example:
+
+An unsuccessful `add` command shows this in the result display:
+>Invalid command format! 
+>
+>add: Adds a person to the address book. Parameters: n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]...
+Example: add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney g/CS2103T g/CS2101
+
+
+While an unsuccessful `group/delete`, for example, shows this:
+
+> You have to input a group name!
+
+In the future, it will be a much better user experience to have error messages standardised, to make them more effective in helping users.
 
 5.
 
