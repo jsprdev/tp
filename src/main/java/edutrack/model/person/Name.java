@@ -12,7 +12,8 @@ public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names should start with a letter/number and may include letters (any language), digits, spaces, "
-            + "apostrophes ('), hyphens (-), dots (.), or slashes (/). It should not be blank.";
+            + "apostrophes ('), hyphens (-), dots (.), or slashes (/). It should not be blank, "
+            + "and must not exceed 100 characters.";
 
     /*
      * The first character of the address must not be a whitespace,
