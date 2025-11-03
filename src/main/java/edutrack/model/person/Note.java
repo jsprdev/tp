@@ -8,14 +8,15 @@ import static java.util.Objects.requireNonNull;
  */
 public class Note {
     public static final String MESSAGE_CONSTRAINTS =
-            "Notes may be empty. If present, the first character must not be a whitespace or control character.";
+            "Notes may be empty. If present, the first character must not be a whitespace or control character,"
+            + "and must not exceed 100 characters.";
 
     /*
      * The first character of the note must not be a whitespace or control character,
      * otherwise a blank string could match.
      */
     public static final String VALIDATION_REGEX = "[^\\s\\p{Cntrl}][\\p{Print}\\p{Space}]*";
-
+    public static final int MAX_NOTE_LENGTH = 100;
     public final String value;
 
     /**

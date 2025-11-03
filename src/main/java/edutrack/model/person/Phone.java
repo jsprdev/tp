@@ -11,8 +11,9 @@ public class Phone {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Phone numbers should only contain digits, spaces, hyphens, and an optional '+' prefix. "
-            + "Must have at least 3 digits.";
+            + "Must have at least 3 digits and length must not exceed 20 characters.";
     public static final String VALIDATION_REGEX = "^(\\+)?[\\d\\s-]{2,}$";
+    public static final int MAX_PHONE_LENGTH = 20;
     public final String value;
 
     /**
