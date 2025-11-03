@@ -674,7 +674,7 @@ The remaining 80% of effort went into designing the multi-entity architecture, i
 
 Team size: 5
 
-1. Improve UX for when user searches for results with no persons listed.
+1. **Improve UX for when user searches for results with no persons listed.**
 
 Right now, the behaviour of certain commands like `findtag` is such that when there is supposed to be no search results returned, the view shows an empty list, where the command is successful and the result display says "0 persons listed!". The command box then clears and the user has to type the full command again.
 
@@ -682,17 +682,23 @@ It may be a better UX for the user to receive an error message, and thus the com
 
 
 
-2. Standardise reference to "Person" class in all application user-facing messages
+2. **Standardise reference to "Person" class in all application user-facing messages**
 
 Right now, EduTrakc sometimes refers to the ocntacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
 
 Example: A successful `findtag` command on a tag with 2 students tagged, displays
 
-`2 persons listed!`
+> 2 persons listed!
 
 In the future, it may be better to standardise these messages to use the word "students" instead of "persons" for a better and closer fit to our product use case.
 
-3.
+3. **Improve error message when assigning group to existing person in group**
+
+Currently, if you try to assign a valid group to a valid and existing student, the command will be successful and a message is displayed that says:
+
+> Assigned group [GROUPNAME] to 0 person(s)
+
+In the future, a better way to handle this would be to display an error message to clearly state the issue here.
 
 4.
 
