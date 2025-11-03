@@ -790,13 +790,13 @@ This enhancement aligns with our target user profile (tutors managing multiple s
 
 Currently, EduTrack allows multiple students to share the same phone number or email address without any warnings or restrictions.
 
-In the future, we plan to add optional validation warnings (not hard errors) when duplicate phone numbers or emails are detected during `add` or `edit` command execution. The system would display a warning message such as:
+In the future, we plan to add optional validation warnings (not hard errors) when duplicate address, phone numbers or emails are detected during `add` or `edit` command execution. The system would display a warning message such as:
 
 > Warning: This phone number is already used by [Student Name]. Do you want to continue? (y/n)
 
 This enhancement would:
 - Help tutors avoid accidental data entry mistakes
-- Maintain flexibility by allowing duplicates when intentional (e.g., siblings using the same contact info)
+- Maintain flexibility by allowing duplicates when intentional (e.g., siblings using the same address)
 - Keep the application usable while improving data quality
 - Not break existing functionality or workflows
 
