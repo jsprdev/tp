@@ -744,9 +744,29 @@ Intuiively, it would be extremely difficult to argue that there is any level of 
 However, it is a possibility that in the future, there mat be a major refactor of the code that renames Person to Student, for which the Developer Guides (amd all other related guides) be updated accordingly.
 
 
-7.
+7. **Standardisation of Group and Tag UI**
 
-8.
+Currently, the implementations of Group and Tag differ slightly in terms of user interface:
+
+The group/list command displays all groups directly in the Main Window, while
+the tag/list command displays all tags in the Help Window.
+
+In the future, it may be better to have such behaviour standardised across commands.
+
+8. **Standardisation of Group and Tag command syntax**
+
+Similarly, the commands for searching differ in syntax:
+
+`find g/GROUP_KEYWORD` — finds persons by their assigned groups.
+
+`findtag t/TAG_KEYWORD` — finds persons by their assigned tags.
+
+These differences arose from independent feature development for groups and tags.
+
+In future iterations, EduTrack will standardise their behaviour so that both entities share consistent command structures and user experiences.
+
+This will improve usability and make command usage more predictable for users.
+
 
 9.
 
