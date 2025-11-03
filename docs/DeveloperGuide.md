@@ -682,7 +682,15 @@ It may be a better UX for the user to receive an error message, and thus the com
 
 
 
-2.
+2. Standardise reference to "Person" class in all application user-facing messages
+
+Right now, EduTrakc sometimes refers to the ocntacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
+
+Example: A successful `findtag` command on a tag with 2 students tagged, displays
+
+`2 persons listed!`
+
+In the future, it may be better to standardise these messages to use the word "students" instead of "persons" for a better and closer fit to our product use case.
 
 3.
 
