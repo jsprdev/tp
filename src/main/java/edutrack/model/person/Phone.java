@@ -13,6 +13,7 @@ public class Phone {
             "Phone numbers should only contain digits, spaces, hyphens, and an optional '+' prefix. "
             + "Must have at least 3 digits.";
     public static final String VALIDATION_REGEX = "^(\\+)?[\\d\\s-]{2,}$";
+    public static final int MAX_PHONE_LENGTH = 20;
     public final String value;
 
     /**

@@ -19,6 +19,7 @@ public class Name {
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{L}\\p{M}\\p{N}][\\p{L}\\p{M}\\p{N} '\\-./]*";
+    public static final int MAX_NAME_LENGTH = 100;
 
     public final String fullName;
 

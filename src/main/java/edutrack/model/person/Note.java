@@ -15,7 +15,7 @@ public class Note {
      * otherwise a blank string could match.
      */
     public static final String VALIDATION_REGEX = "[^\\s\\p{Cntrl}][\\p{Print}\\p{Space}]*";
-
+    public static final int MAX_NOTE_LENGTH = 500;
     public final String value;
 
     /**

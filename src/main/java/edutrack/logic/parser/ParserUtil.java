@@ -23,6 +23,13 @@ import edutrack.model.tag.Tag;
 public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero unsigned integer.";
+    public static final String MESSAGE_NAME_LENGTH_CONSTRAINTS = "Name too long (max %d characters).";
+    public static final String MESSAGE_PHONE_LENGTH_CONSTRAINTS = "Phone number too long (max %d characters).";
+    public static final String MESSAGE_ADDRESS_LENGTH_CONSTRAINTS = "Address too long (max %d characters).";
+    public static final String MESSAGE_EMAIL_LENGTH_CONSTRAINTS = "Email too long (max %d characters).";
+    public static final String MESSAGE_TAG_LENGTH_CONSTRAINTS = "Tag too long (max %d characters).";
+    public static final String MESSAGE_GROUP_LENGTH_CONSTRAINTS = "Group name too long (max %d characters).";
+    public static final String MESSAGE_NOTE_LENGTH_CONSTRAINTS = "Note too long (max %d characters).";
 
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
@@ -49,6 +56,11 @@ public class ParserUtil {
         if (!Name.isValidName(trimmedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedName.length() > Name.MAX_NAME_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_NAME_LENGTH_CONSTRAINTS, Name.MAX_NAME_LENGTH));
+        }
+
         return new Name(trimmedName);
     }
 
@@ -63,6 +75,10 @@ public class ParserUtil {
         String trimmedPhone = phone.trim();
         if (!Phone.isValidPhone(trimmedPhone)) {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
+        }
+
+        if (trimmedPhone.length() > Phone.MAX_PHONE_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_PHONE_LENGTH_CONSTRAINTS, Phone.MAX_PHONE_LENGTH));
         }
         return new Phone(trimmedPhone);
     }
@@ -84,6 +100,10 @@ public class ParserUtil {
         if (!Address.isValidAddress(trimmedAddress)) {
             throw new ParseException(Address.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedAddress.length() > Address.MAX_ADDRESS_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_ADDRESS_LENGTH_CONSTRAINTS, Address.MAX_ADDRESS_LENGTH));
+        }
         return new Address(trimmedAddress);
     }
 
@@ -99,6 +119,11 @@ public class ParserUtil {
         if (!Email.isValidEmail(trimmedEmail)) {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedEmail.length() > Email.MAX_EMAIL_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_EMAIL_LENGTH_CONSTRAINTS, Email.MAX_EMAIL_LENGTH));
+        }
+
         return new Email(trimmedEmail);
     }
 
@@ -114,6 +139,11 @@ public class ParserUtil {
         if (!Tag.isValidTagName(trimmedTag)) {
             throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedTag.length() > Tag.MAX_TAG_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_TAG_LENGTH_CONSTRAINTS, Tag.MAX_TAG_LENGTH));
+        }
+
         return new Tag(trimmedTag);
     }
 
@@ -141,6 +171,11 @@ public class ParserUtil {
         if (!Group.isValidGroupName(trimmedGroup)) {
             throw new ParseException(Group.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedGroup.length() > Group.MAX_GROUP_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_GROUP_LENGTH_CONSTRAINTS, Group.MAX_GROUP_LENGTH));
+        }
+
         return new Group(trimmedGroup);
     }
 
@@ -168,6 +203,11 @@ public class ParserUtil {
         if (!Note.isValidNote(trimmedNote)) {
             throw new ParseException(Note.MESSAGE_CONSTRAINTS);
         }
+
+        if (trimmedNote.length() > Note.MAX_NOTE_LENGTH) {
+            throw new ParseException(String.format(MESSAGE_NOTE_LENGTH_CONSTRAINTS, Note.MAX_NOTE_LENGTH));
+        }
+
         return new Note(trimmedNote);
     }
 
