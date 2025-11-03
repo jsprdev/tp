@@ -763,7 +763,11 @@ These differences arose from independent feature development for groups and tags
 In future iterations, EduTrack will standardise their behaviour so that both entities share consistent command structures, output displays, and user experiences.
 This will improve usability and make command usage more predictable for users.
 
-8.
+8. **Possible addiiton of Colorblind mode / High-constrast UI mode**
+
+Right now, we are relying on colour to visually distuinguish between tags and groups in our UI.
+
+In the future, it will be helpful to have a colorblind mode that helps those who suffer from colour deficiency use our app more effectively, given that some of them may have difficulty identifying which are tags and which are groups based on colour alone.
 
 9.
 
