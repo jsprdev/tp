@@ -13,10 +13,8 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/jsprdev.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-
 [[github](https://github.com/jsprdev)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/jsprdev.md)]
 
 * Role: Project Advisor
 
@@ -25,7 +23,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/mengshuos.png" width="200px">
 
 [[github](http://github.com/mengshuos)] [[portfolio](team/mengshuos.md)]
-[[portfolio](team/mengshuos.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -55,7 +52,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/arunblue3.png" width="200px">
 
 [[github](http://github.com/arunblue3)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/arunblue3.md)]
 
 * Role: Developer
 * Responsibilities: UI
