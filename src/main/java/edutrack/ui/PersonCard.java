@@ -54,15 +54,15 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
+        phone.setText("Phone: " + person.getPhone().value);
+        address.setText("Address: " + person.getAddress().value);
+        email.setText("Email: " + person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         person.getGroups().stream()
                 .sorted(Comparator.comparing(group -> group.groupName))
                 .forEach(group -> groups.getChildren().add(new Label(group.groupName)));
-        note.setText(person.getNote().value);
+        note.setText("Note: " + person.getNote().value);
     }
 }
