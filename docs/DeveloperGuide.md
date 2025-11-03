@@ -674,11 +674,19 @@ The remaining 80% of effort went into designing the multi-entity architecture, i
 
 Team size: 5
 
-1. **Improve UX for when user searches for results with no persons listed.**
+1. **Check for excessive whitespace in-between words for certain parameters**
 
-Right now, the behaviour of certain commands like `findtag` is such that when there is supposed to be no search results returned, the view shows an empty list, where the command is successful and the result display says "0 persons listed!". The command box then clears and the user has to type the full command again.
+Right now, if a user does
 
-It may be a better UX for the user to receive an error message, and thus the command does not clear out, and the user does not have to type it all over again.
+`add n/ Meng Shuo`
+
+and then subsequently does
+
+`add n/ Meng `         ` `         ` `         `   Shuo` (note the extra spaces in between "Meng" and "Shuo")
+
+These two successive commands are successful, and allow the addiiton of these two students as distinct Person objects internally.
+
+In the future, we may consider validating parameters for such cases of excessive whitespace, as these should be counted as duplicate entries.
 
 
 
@@ -727,7 +735,14 @@ In the future, we can explore better ways to handle such cases, because we do no
 
 Similarly, in the future, phone numbers may (with a non-zero chance) evolve to become more than 100 characters long.
 
-6. 
+6. **Standardise reference to person / student in all internal and external guides**
+
+Right now, in the Developer Guide, under the Use Cases, we use the term "persons" for consistency with the Person class which is internally named as such.
+
+Intuiively, it would be extremely difficult to argue that there is any level of ambiguity to what "person" means in this context, assuming a basal level of comprehension for our product use-case.
+
+However, it is a possibility that in the future, there mat be a major refactor of the code that renames Person to Student, for which the Developer Guides (amd all other related guides) be updated accordingly.
+
 
 7.
 
