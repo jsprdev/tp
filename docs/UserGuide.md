@@ -213,7 +213,7 @@ By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
 * Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
 * Group search matches full words in group names assigned to the student (no partial matches).
-* Only one `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
+* **Only one** `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
 * Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
