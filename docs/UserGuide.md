@@ -171,29 +171,28 @@ Format: `list`
 
 Edits the information of an existing student in the address book, allowing you to update their details or correct any mistakes.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GROUP]...`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]`
 
 #### Notes:
->* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
->* At least one of the optional fields must be provided.
->* Existing values will be updated to the input values.
->* To manage tags, use the `tag/assign` and `tag/unassign` commands instead.
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* Editing tags using the `edit` command is supported via the `t/` prefix. Providing one or more `t/TAG` values replaces the student's existing tags with the given set.
+  * To clear all tags, include only one `t/` with no value (for example: `edit 2 t/`).
+* Editing groups using the `edit` command is supported via the `g/` prefix. Providing one or more `g/GROUP` values replaces the student's existing groups with the given set.
+  * To clear all groups, include only one `g/` with no value (for example: `edit 2 g/`).
 
 <div markdown="block" class="alert alert-warning">
 
-**Important: Editing Groups**
-
-* When editing groups, the existing groups of the student will be removed.
-
-  i.e if you wish to edit a student that already has group `CS2103T`, you have to include `CS2103T` again if you wish to keep it.
-* You can remove all the student's groups by typing `g/` without specifying any groups after it.
+* Note: the `edit` command replaces all of the student's tags or groups when a single `t/` or `g/` is provided. If you want to add or remove a single tag or group without replacing the full set, use `tag/assign` / `tag/unassign` or `group/assign` / `group/unassign` respectively.
 
 </div>
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
-*  `edit 2 n/Betsy Crower g/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
+* `edit 1 p/91234567 e/johndoe@example.com` - Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+* `edit 3 p/91234567 g/CS2103T g/CS2100 t/Weak no/Needs more help in CS mods` - Edits the 3rd student to be in the CS2103T and CS2100 group with the `Weak` tag and a note.
+* `edit 2 n/Betsy Crower t/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+* `edit 2 n/Betsy Crower g/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
 
 --------------------------------------------------------------------------------------------------------------------
 ### Locating by name or group: `find`
@@ -208,18 +207,19 @@ By name: `find n/KEYWORD [MORE_KEYWORDS]...`
 By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 
 #### Notes:
->* Exactly one of n/ or g/ must be present.
->* Keywords/Group names are separated by spaces.
->* The search is case-insensitive. e.g `hans` will match `Hans`.
->* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
->* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
->* Group search matches group names assigned to the student.
->* Students matching at least one keyword will be returned (i.e. `OR` search).
-   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
+* Exactly one of n/ or g/ must be present.
+* Keywords/Group names are separated by spaces.
+* The search is case-insensitive. e.g `hans` will match `Hans`.
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
+* Group search matches full words in group names assigned to the student (no partial matches).
+* **Only one** `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
+* Students matching at least one keyword will be returned (i.e. `OR` search).
+  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
 #### Examples:
-* `find n/ John` returns `john` and `John Doe`
-* `find n/ alex david` returns `Alex Yeoh`, `David Li`<br>
+* `find n/John` returns `john` and `John Doe`
+* `find n/alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 * `find g/CS2103T` returns all students in group “CS2103T”
@@ -360,6 +360,22 @@ Format: `tag/create t/TAG_NAME`
 >* `TAG_NAME` is case-insensitive and acceptable characters are alphanumeric, hyphens (-), underscores (_), and slashes (/).
 >* `TAG_NAME` has a maximum length of 100 characters.
 >* Spaces are not allowed.
+
+<div markdown="block" class="alert alert-info">
+**Tag & Group name validation (quick reference)**
+
+* Allowed characters: letters, digits, hyphen (-), underscore (_), slash (/).
+* No spaces are allowed — use `_` or `-` instead.
+* Maximum length: 100 characters.
+* Matching is case-insensitive (e.g. `friends` == `Friends`).
+
+Use these rules when creating tags or groups (commands: `tag/create`, `group/create`).
+</div>
+
+### Visual appearance of tags and groups
+
+* Tags and groups are displayed as small labels beside a student's name and details.
+* Tags are shown in a darker cyan colour and groups are shown in a lighter cyan colour; otherwise they appear in the same label style.
 
 --------------------------------------------------------------------------------------------------------------------
 ### Delete Tag: `tag/delete`
@@ -522,10 +538,10 @@ _Details coming soon ..._
 
 | Action                  | Description                                 | Format / Example                                                                                                                                                                                     |
 |-------------------------|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**                 | Add a student to the list.                  | `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`   <br><br> Example: `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd g/CS2103T t/Good at UML Diagrams` |
+| **Add**                 | Add a student to the list.                  | `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`   <br><br> Example: `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd g/CS2103T t/good_at_uml` |
 | **Clear**               | Removes all stored data.                    | `clear`                                                                                                                                                                                              |
 | **Delete**              | Deletes student from EduTrack.              | `delete INDEX`<br><br>Example: `delete 3`                                                                                                                                                            |
-| **Edit**                | Edit an existing student.                   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/GROUP]...` <br><br> Example: `edit 2 n/James Lee e/jameslee@example.com`                                                                     |
+| **Edit**                | Edit an existing student.                   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]` <br><br> Example: `edit 2 n/James Lee e/jameslee@example.com`                                                                     |
 | **Find**                | Locate students by keywords in their names. | `find n/KEYWORD [MORE_KEYWORDS]...`<br><br>Example: `find n/James Jake`                                                                                                                              |
 | **Find by Group**       | Find all students in a specific group.      | `find g/GROUP [MORE_GROUPS]...`<br><br>Example: `find g/CS2103T`                                                                                                                                     |
 | **Find by Tag**         | Find students with a specific tag.          | `findtag t/TAG`<br><br>Example: `findtag t/friends`                                                                                                                                                  |
@@ -545,6 +561,18 @@ _Details coming soon ..._
 | **Sort**                | Sort all students alphabetically.           | `sort`                                                                                                                                                                                               |
 | **Create Note**         | Creates a note for specified student.       | `note/create INDEX no/NOTE`<br><br>Example: `note/create 3 no/Missed the past 3 deadlines. Needs more help with CS2100.`                                                                             |
 | **Delete Note**         | Deletes note attached to specified student. | `note/delete INDEX`<br><br>Example: `note/delete 3`                                                                                                                                                  |
+
+
+## Glossary
+
+* GUI — Graphical User Interface: the visual, mouse-driven parts of the application (windows, buttons, labels). In EduTrack the GUI is implemented using JavaFX and complements the keyboard command box.
+* Prefix — A short label ending with `/` used to identify command parameters (e.g. `n/`, `t/`, `g/`).
+* Filtered list — A view of the full person list that only shows persons matching a predicate; many commands (e.g. `find`) update the filtered list.
+* Predicate — A rule (boolean test) used to decide whether a person should be included in a filtered list (e.g. "name contains keyword").
+* Index — A 1-based number shown next to each person in the UI; many commands (e.g. `edit`, `delete`) operate on the person at that index in the currently displayed (filtered) list.
+* JSON — JavaScript Object Notation, a text format used for saving EduTrack data to disk.
+* Tag — A short label used to categorise a student (no spaces, allowed characters: alphanumeric, `-`, `_`, `/`). Tags are case-insensitive for matching and searches (e.g. `t/Friends` matches `friends`).
+* Group — A central entity used to group students (no spaces, allowed characters: alphanumeric, `-`, `_`, `/`). Group names are case-insensitive for matching and searches.
 
 
 

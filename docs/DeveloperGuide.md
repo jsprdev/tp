@@ -211,15 +211,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | tutor         | sort by day                                                                              | know which groups I have for that day              |
 | `* *`    | tutor         | archive students                                                                         | view current vs past students                      |
 | `* *`    | tutor         | filter students by performance metrics                                                   | identify weaker students.                          |
-| `* *`    | tutor         | record participation (e.g., "active," "quiet," "needs improvement")                      | monitor engagement.                                |
-| `* *`    | tutor         | be able to filter between students that need more help and students that are on schedule | take a glance                                      |
+| `* *`    | tutor         | record participation (e.g., "active," "quiet," "needs improvement")                      | track and assess student engagement.                |
+| `* *`    | tutor         | filter students to identify those that need more help versus those on schedule           | quickly identify at-risk students                  |
 | `* *`    | tutor         | add the contact details of my student                                                    | contact them                                       |
 | `* *`    | tutor         | edit the contact details of my student                                                   | have accurate info                                 |
 | `* *`    | busy tutor    | track the assignments that I have given out                                              | know when to expect work to be handed in.          |
 | `* *`    | busy tutor    | take attendance easily                                                                   | spend more time teaching in class.                 |
 | `* *`    | private tutor | track student addresses                                                                  | go to their house                                  |
-| `* *`    | private tutor | track payments                                                                           | identify current students                          |
-| `*`      | tutor         | create events for classes and office hours                                               | am organized                                       |
+| `* *`    | private tutor | track payments                                                                           | keep track of current students                     |
+| `*`      | tutor         | create events for classes and office hours                                               | keep track of my events                            |
 | `*`      | tutor         | record test and assignment scores                                                        | track academic progress.                           |
 | `*`      | tutor         | export attendance and progress reports                                                   | share them with parents or institutions.           |
 | `*`      | tutor         | filter reports by timeframe (e.g., monthly / termly)                                     | measure improvement over periods.                  |
@@ -236,7 +236,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS:**
 
-1.  User requests to add a new person.
+1.  User inputs person details to be added.
 2.  System validates relevant parameters.
 3.  System adds the person.
 4.  System confirms that person has been added.
@@ -256,6 +256,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: Delete a person**
 
+**Preconditions:**
+- At least one person exists in the address book.
+
 **MSS:**
 
 1.  User requests to delete a specific person in the list.
@@ -265,17 +268,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. The list of persons in address book is empty.
+* 2a. The parameter is invalid.
+    * 2b1. System rejects the deletion and displays an appropriate error message.
 
     Use case ends.
-
-* 2b. The parameter is invalid.
-    * 2b1. System rejects the deletion and displays an appropriate error message.
 
 **Use case: Search for a Person by Parameter**
 
 **Preconditions:**
-- The persons list is not empty.
+- At least one person exists in the address book.
 
 **MSS:**
 
@@ -289,9 +290,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. No parameter provided.
   * 1a1. System prompts User to provide a parameter.
+    
+    Use case ends.
 
 * 3a. No matching persons found
   * 3a1. System informs the User that no results were found.
+    
+    Use case ends.
 
 **Use case: Create a Group or Tag**
 
@@ -306,10 +311,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions:**
 * 2a. Invalid group or tag name
   * 2a1. System rejects the request and shows an appropriate error message.
+    
+    Use case ends.
+
 * 2b. Group or tag name already exists
   * 2b1. System rejects the request to prevent duplicates.
+    
+    Use case ends.
+    
 * 2c. No name provided
   * 2c1. System asks the user to input a valid name.
+    
+    Use case ends.
 
 **Use case: Assign Persons to a Group or Tag**
 
@@ -320,16 +333,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to assign one or more persons to an existing group or tag.
 2. System verifies that the specified group or tag exists.
 3. System validates that the referenced persons exist.
-4. System assigns those persons to the group or tag.
-5. System confirms that the persons were successfully added to the group or tag.
+4. System validates that the persons are not already assigned to the group or tag.
+5. System assigns those persons to the group or tag.
+6. System confirms that the persons were successfully added to the group or tag.
+
+   Use case ends.
 
 **Extensions:**
 - 2a. The specified group or tag does not exist
   - 2a1. System informs the user that the group is invalid.
+    
+    Use case ends.
 - 3a. One or more person references are invalid
   - 3a1. System informs the user which entries are invalid.
+    
+    Use case ends.
 - 4a. Some persons are already assigned to the group or tag
   - 4a1. System informs the user about the duplicates and rejects the assignment.
+    
+    Use case ends.
 
 **Use case: Unassign a Person from a Group or Tag**
 
@@ -351,8 +373,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+2.  Should be able to complete commands within 500ms for typical operations (add, delete, find) when handling up to 1000 persons.
+3.  A user with above-average typing speed (around 50-70 words per minute for regular English text) should be able to accomplish a standard workflow (add, find, edit) faster using commands than using the mouse.
 4.  Should be able to start up within 3 seconds on a typical modern computer.
 5.  The application should use less than 500MB of memory while running on a typical modern computer.
 6.  All error messages must be clear and actionable for end users.
@@ -362,7 +384,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **System**: The EduTrack application itself, referring to automated processes performed by the software.
+* **Actor**: The user interacting with EduTrack (typically a tutor or administrator).
+* **Entity**: A core data object in EduTrack, such as `Person`, `Group`, or `Tag`.
+* **Filter/Predicate**: A condition used to select a subset of persons from the full list (e.g., searching by name or group).
+* **Cascade Delete**: An automatic operation where deleting a group or tag also removes it from all assigned persons.
+* **CLI**: Command Line Interface; a text-based interface where users type commands rather than clicking buttons.
+* **AddressBook** (Legacy): The predecessor application upon which EduTrack was based; now referred to as EduTrack.
+* **Unsynced Platforms**: Multiple separate systems or trackers (not connected to each other) that do not share or update data between them.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -381,13 +410,14 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Open a command terminal in that folder and run `java -jar edutrack.jar`<br>
+      Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   1. Re-launch the app by running `java -jar edutrack.jar` in a terminal.<br>
        Expected: The most recent window size and location is retained.
 
 
@@ -402,7 +432,7 @@ testers are expected to do more *exploratory* testing.
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No person is deleted. Error details shown in the status message.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
