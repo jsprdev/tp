@@ -224,6 +224,7 @@ By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 
 * `find g/CS2103T` returns all students in group “CS2103T”
 * `find g/CS1101S CS1231S` returns all students in groups “CS1101S” or "CS1231S"
+  ![result for 'find g/CS1101S CS1231S'](images/findCS1101SCS1231SResult.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -241,6 +242,7 @@ Format: `findtag t/TAG`
 
 #### Examples:
 * `findtag t/friends` returns all students tagged with `friends`
+![result for 'find t/friends'](images/findfriendsResult.png)
 * `findtag t/needs_help` returns all students tagged with `needs_help`
 * `findtag t/upper-quartile` returns all students tagged with `upper-quartile`
 
@@ -277,6 +279,10 @@ Format:
 > - If you try to type `clear confirm` before having typed `clear` at least once, you will be prompted to first initiate the clear.
 > - After you type `clear`, if you type anything else other than `clear confirm`, it resets the clearing workflow and you have to start over.
 
+#### Example:
+`clear` followed by `clear confirm` clears the list 
+![result for 'clear'](images/clear.png)
+![result for 'clear confirm'](images/clearconfirm.png)
 
 --------------------------------------------------------------------------------------------------------------------
 ### Exiting the program : `exit`
@@ -449,6 +455,9 @@ Format: `stats`
 >       - Breakdown of each tag and how many students in that group have it
 > - Use this command to quickly identify which groups need more attention or to see tag distribution across your students.
 
+#### Example:
+`stats` on the sample data that comes with the app shows the following
+![result for 'stats'](images/stats.png)
 --------------------------------------------------------------------------------------------------------------------
 
 ### Sorting: `sort`
