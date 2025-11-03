@@ -182,7 +182,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP
 * Editing groups using the `edit` command is supported via the `g/` prefix. Providing one or more `g/GROUP` values replaces the student's existing groups with the given set.
   * To clear all groups, include only one `g/` with no value (for example: `edit 2 g/`).
 
-* Note: the `edit` command replaces the student's entire tag and group sets when a single `t/` or `g/` is provided. If you want to add or remove a single tag or group without replacing the full set, use `tag/assign` / `tag/unassign` or `group/assign` / `group/unassign` respectively.
+* Note: the `edit` command replaces all of the student's tags or groups when a single `t/` or `g/` is provided. If you want to add or remove a single tag or group without replacing the full set, use `tag/assign` / `tag/unassign` or `group/assign` / `group/unassign` respectively.
 
 <div markdown="block" class="alert alert-warning">
 
