@@ -189,9 +189,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP
 </div>
 
 Examples:
-* `edit 1 p/91234567 e/johndoe@example.com` — Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` — Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
-* `edit 2 n/Betsy Crower g/` — Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
+* `edit 1 p/91234567 e/johndoe@example.com` - Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+* `edit 3 p/91234567 g/CS2103T g/CS2100 t/Weak no/Needs more help in CS mods` - Edits the 3rd student to be in the CS2103T and CS2100 group with the `Weak` tag and a note.
+* `edit 2 n/Betsy Crower t/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+* `edit 2 n/Betsy Crower g/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
 
 --------------------------------------------------------------------------------------------------------------------
 ### Locating by name or group: `find`
