@@ -7,7 +7,6 @@ import java.util.function.Predicate;
 import edutrack.commons.util.ToStringBuilder;
 import edutrack.logic.Messages;
 import edutrack.logic.commands.exceptions.CommandException;
-import edutrack.logic.parser.exceptions.ParseException;
 import edutrack.model.Model;
 import edutrack.model.person.Person;
 
