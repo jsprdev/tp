@@ -165,12 +165,12 @@ Adds a student to the address book.
 Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`
 
 #### Parameters:
-* `NAME` : Name of the student. Letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/) are allowed.
+* `NAME` : Name of the student. Must start with alphanumeric character; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/).
 * `PHONE_NUMBER` : Phone number of the student. Digits, spaces, hyphens (-), and an optional '+' prefix are allowed. Must contain at least 3 digits. Examples: `91234567`, `9123 4567`, `+65 9123 4567`.
-* `EMAIL` : Email address of the student, must be in the format `local-part@domain`.
-* `ADDRESS` : Address of the student, can contain alphanumeric characters and spaces.
-* `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed.
-* `TAG` : Tag(s) to be assigned to the student, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed.
+* `EMAIL` : Email address of the student, must be in the format `local-part@domain`. Optional field.
+* `ADDRESS` : Address of the student, can contain any printable characters. Must not start with whitespace. Optional field.
+* `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
+* `TAG` : Tag(s) to be assigned to the student, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
 
 #### Notes:
 
@@ -331,7 +331,7 @@ Format: `group/create g/GROUP_NAME`
 
 >* `GROUP_NAME` refers to the name you wish to assign to the group.
 >* `GROUP_NAME` is case-insensitive and acceptable characters are alphanumeric, hyphens (-), underscores (_), and slashes (/).
->* `GROUP_NAME` has a maximum length of 100 characters.
+>* `GROUP_NAME` has a maximum length of 50 characters.
 >* Spaces are not allowed.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -393,7 +393,7 @@ Format: `tag/create t/TAG_NAME`
 #### Notes:
 >* `TAG_NAME` refers to the name you wish to assign to the tag.
 >* `TAG_NAME` is case-insensitive and acceptable characters are alphanumeric, hyphens (-), underscores (_), and slashes (/).
->* `TAG_NAME` has a maximum length of 100 characters.
+>* `TAG_NAME` has a maximum length of 50 characters.
 >* Spaces are not allowed.
 
 <div markdown="block" class="alert alert-info">
@@ -401,7 +401,7 @@ Format: `tag/create t/TAG_NAME`
 
 * Allowed characters: letters, digits, hyphen (-), underscore (_), slash (/).
 * No spaces are allowed — use `_` or `-` instead.
-* Maximum length: 100 characters.
+* Maximum length: 50 characters.
 * Matching is case-insensitive (e.g. `friends` == `Friends`).
 
 Use these rules when creating tags or groups (commands: `tag/create`, `group/create`).
