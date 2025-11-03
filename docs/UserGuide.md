@@ -239,6 +239,7 @@ Format: `findtag t/TAG`
 >* Only one tag can be searched at a time.
 >* Only students with the exact tag will be returned.
 >* Tag names may include alphanumeric characters, hyphens (-), underscores (_), and slashes (/).
+>* If you try to `findtag` a tag where no persons are found, the entire view will show an empty list.
 
 #### Examples:
 * `findtag t/friends` returns all students tagged with `friends`
