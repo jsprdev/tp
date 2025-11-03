@@ -13,8 +13,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/jsprdev.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-
 [[github](https://github.com/jsprdev)]
 [[portfolio](team/jsprdev.md)]
 
@@ -25,7 +23,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/mengshuos.png" width="200px">
 
 [[github](http://github.com/mengshuos)] [[portfolio](team/mengshuos.md)]
-[[portfolio](team/mengshuos.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
