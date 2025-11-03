@@ -669,7 +669,28 @@ The remaining 80% of effort went into designing the multi-entity architecture, i
 
 --------------------------------------------------------------------------------------------------------------------
 
+
 ## **Appendix: Planned Enhancements**
 
-This section will be updated post PE-D (this is allowed as per CS2103T website).
+Team size: 5
+
+1. 
+
+2.
+
+3.
+
+4.
+
+5.
+
+6.
+
+7.
+
+8.
+
+9.
+
+10.
 
