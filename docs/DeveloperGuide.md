@@ -769,7 +769,41 @@ Right now, we are relying on colour to visually distuinguish between tags and gr
 
 In the future, it will be helpful to have a colorblind mode that helps those who suffer from colour deficiency use our app more effectively, given that some of them may have difficulty identifying which are tags and which are groups based on colour alone.
 
-9.
+9. **Add Attendance Tracking Feature**
 
-10.
+Currently, EduTrack does not have a built-in way to track student attendance for tutorial sessions or classes.
+
+In the future, we plan to add simple attendance tracking functionality that allows tutors to:
+- Mark students as present or absent for a particular date or session
+- View attendance history for individual students
+- Generate basic attendance statistics (e.g., attendance rate per student or per group)
+
+This feature would integrate naturally with the existing group system, allowing tutors to take attendance for entire groups at once.
+Example commands might include:
+- `attendance/mark INDEX [MORE_INDEXES]... d/DATE` — marks specified students as present for a given date
+- `attendance/view INDEX` — displays attendance history for a specific student
+- `attendance/stats [g/GROUP]` — shows attendance statistics for all students or a specific group
+
+This enhancement aligns with our target user profile (tutors managing multiple students) and addresses a common need identified in our user stories, making EduTrack a more cohesive classroom management tool.
+
+10. **Improve handling of duplicate phone numbers and emails across different students**
+
+Currently, EduTrack allows multiple students to share the same phone number or email address without any warnings or restrictions.
+
+In the future, we plan to add optional validation warnings (not hard errors) when duplicate phone numbers or emails are detected during `add` or `edit` command execution. The system would display a warning message such as:
+
+> Warning: This phone number is already used by [Student Name]. Do you want to continue? (y/n)
+
+This enhancement would:
+- Help tutors avoid accidental data entry mistakes
+- Maintain flexibility by allowing duplicates when intentional (e.g., siblings using the same contact info)
+- Keep the application usable while improving data quality
+- Not break existing functionality or workflows
+
+Implementation would involve:
+- Adding predicates to check for existing phone/email matches in the address book
+- Modifying the `add` and `edit` command flow to include an optional confirmation step
+- Displaying informative warnings without blocking the operation entirely
+
+This enhancement addresses a usability concern that makes the product imperfect but still functional, improving the overall user experience for tutors managing student contact information.
 
