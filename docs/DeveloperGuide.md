@@ -669,7 +669,107 @@ The remaining 80% of effort went into designing the multi-entity architecture, i
 
 --------------------------------------------------------------------------------------------------------------------
 
+
 ## **Appendix: Planned Enhancements**
 
-This section will be updated post PE-D (this is allowed as per CS2103T website).
+Team size: 5
+
+1. **Check for excessive whitespace in-between words for certain parameters**
+
+Right now, if a user does
+
+`add n/ Meng Shuo`
+
+and then subsequently does
+
+`add n/ Meng `         ` `         ` `         `   Shuo` (note the extra spaces in between "Meng" and "Shuo")
+
+These two successive commands are successful, and allow the addiiton of these two students as distinct Person objects internally.
+
+In the future, we may consider validating parameters for such cases of excessive whitespace, as these should be counted as duplicate entries.
+
+
+
+2. **Standardise reference to "Person" class in all application user-facing messages**
+
+Right now, EduTrakc sometimes refers to the ocntacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
+
+Example: A successful `findtag` command on a tag with 2 students tagged, displays
+
+> 2 persons listed!
+
+In the future, it may be better to standardise these messages to use the word "students" instead of "persons" for a better and closer fit to our product use case.
+
+3. **Improve error message when assigning / unassigning group to existing person in group**
+
+Currently, if you try to assign a valid group to a valid and existing student, the command will be successful and a message is displayed that says:
+
+> Assigned group [GROUPNAME] to 0 person(s)
+
+Similar behaviour occurs with group/unassign.
+
+In the future, a better way to handle this would be to display an error message to clearly state the issue here.
+
+4. **Standardise format of error messages**
+
+Currently, some commands have inconsistent error messages.
+
+Example:
+
+An unsuccessful `add` command shows this in the result display:
+>Invalid command format! 
+>
+>add: Adds a person to the address book. Parameters: n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]...
+Example: add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney g/CS2103T g/CS2101
+
+
+While an unsuccessful `group/delete`, for example, shows this:
+
+> You have to input a group name!
+
+In the future, it will be a much better user experience to have error messages standardised, to make them more effective in helping users.
+
+5. **Better UI/UX handling of cases where inputs to attributes are too long**
+
+Right now, we have a immediate fix of handling overly-long inputs to student attributes by limiting the number of characters to the fields, as well as allowing the text to wrap.
+
+In the future, we can explore better ways to handle such cases, because we do not want to overzealously validate the input. For instance, in some extreme-but-valid cases, there may be a real need in the future for tutors to input a very, very long note, that well exceeds our current character limit. 
+
+Similarly, in the future, phone numbers may (with a non-zero chance) evolve to become more than 100 characters long.
+
+6. **Standardise reference to person / student in all internal and external guides**
+
+Right now, in the Developer Guide, under the Use Cases, we use the term "persons" for consistency with the Person class which is internally named as such.
+
+Intuiively, it would be extremely difficult to argue that there is any level of ambiguity to what "person" means in this context, assuming a basal level of comprehension for our product use-case.
+
+However, it is a possibility that in the future, there mat be a major refactor of the code that renames Person to Student, for which the Developer Guides (amd all other related guides) be updated accordingly.
+
+
+7. **Standardisation of Group and Tag Features**
+
+Currently, the implementations of Group and Tag differ slightly in terms of command behaviour and user interface:
+
+The group/list command displays all groups directly in the Main Window, while
+the tag/list command displays all tags in the Help Window.
+
+Similarly, the commands for searching differ in syntax:
+
+`find g/GROUP_KEYWORD` — finds persons by their assigned groups.
+
+`findtag t/TAG_KEYWORD` — finds persons by their assigned tags.
+
+These differences arose from independent feature development for groups and tags.
+In future iterations, EduTrack will standardise their behaviour so that both entities share consistent command structures, output displays, and user experiences.
+This will improve usability and make command usage more predictable for users.
+
+8. **Possible addiiton of Colorblind mode / High-constrast UI mode**
+
+Right now, we are relying on colour to visually distuinguish between tags and groups in our UI.
+
+In the future, it will be helpful to have a colorblind mode that helps those who suffer from colour deficiency use our app more effectively, given that some of them may have difficulty identifying which are tags and which are groups based on colour alone.
+
+9.
+
+10.
 
