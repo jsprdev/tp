@@ -54,7 +54,9 @@ If you type fast, you can handle and manage all your students across your differ
 
 ## Quick start
 
-1. Ensure you have Java `17` or above installed in your Computer.<br>
+1. Java is a programming language that needs to be installed. If you don't have it, download it from the official Java website.
+
+Ensure you have Java `17` or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-F14a-3/tp/releases).
@@ -93,7 +95,7 @@ If you type fast, you can handle and manage all your students across your differ
 * In each command section, the **Format:** line shows you how to type the command in the command box, and how to use its parameters.
 
 
-* You have to replace parameters in upper case with the actual values you want.<br>
+* You have to replace the words (parameters) in upper case with the actual values you want.<br>
   > e.g. in `add n/NAME`, `NAME` is to be replaced with the actual name to be used, such as `add n/John Doe`.
 
 * You can choose not to include parameters in square brackets, they are optional.<br>
@@ -115,6 +117,19 @@ If you type fast, you can handle and manage all your students across your differ
 * If you are using a PDF version of this document, be careful when copying and pasting commands directly.
     * This is because you may accidentally copy over hidden invalid characters.
 </div>
+
+#### Notes:
+
+> - #### Colour Coding
+>   - In EduTrack, there are some visual elements that are distinguished from one another by their colour:
+>     - Groups are displayed in the colour `teal` (Hex: #10938F).
+>     - Tags are displayed in the colour `blue-green`(Hex: #00C4A8).
+>
+>   - These colour distinctions make it easier to identify key details at a glance.
+>
+> - Other attributes (such as name, phone, email, address, notes) are displayed as plain text lines without colour highlighting.
+>   - For these attributes, you will see an explicit label that is displayed on the application.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -148,7 +163,7 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 
 > + The first character of NAME must be alphanumeric.
 > + All specified groups and tags must already exist in the system.
-> + You can add multiple groups by entering `g/GROUP_NAME` multiple times, as seen n the example.
+> + You can add multiple groups by entering `g/GROUP_NAME` multiple times, as seen in the example.
 > + Groups and tags must follow their respective naming conventions (see [group/create](#create-group-groupcreate) and [tag/create](#create-tag-tagcreate) for details).
 > + Duplicate students are not allowed in the address book. A duplicate is defined as a student with the same name as an existing student (case-insensitive). 
 
@@ -174,13 +189,13 @@ Edits the information of an existing student in the address book, allowing you t
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]`
 
 #### Notes:
-* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* Editing tags using the `edit` command is supported via the `t/` prefix. Providing one or more `t/TAG` values replaces the student's existing tags with the given set.
-  * To clear all tags, include only one `t/` with no value (for example: `edit 2 t/`).
-* Editing groups using the `edit` command is supported via the `g/` prefix. Providing one or more `g/GROUP` values replaces the student's existing groups with the given set.
-  * To clear all groups, include only one `g/` with no value (for example: `edit 2 g/`).
+> * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, ...
+> * At least one of the optional fields must be provided.
+> * Existing values will be updated to the input values.
+> * Editing tags using the `edit` command is supported via the `t/` prefix. Providing one or more `t/TAG` values replaces the student's existing tags with the given set.
+>  * To clear all tags, include only one `t/` with no value (for example: `edit 2 t/`).
+>* Editing groups using the `edit` command is supported via the `g/` prefix. Providing one or more `g/GROUP` values replaces the student's existing groups with the given set.
+>  * To clear all groups, include only one `g/` with no value (for example: `edit 2 g/`).
 
 <div markdown="block" class="alert alert-warning">
 
@@ -207,15 +222,15 @@ By name: `find n/KEYWORD [MORE_KEYWORDS]...`
 By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 
 #### Notes:
-* Exactly one of n/ or g/ must be present.
-* Keywords/Group names are separated by spaces.
-* The search is case-insensitive. e.g `hans` will match `Hans`.
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
-* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
-* Group search matches full words in group names assigned to the student (no partial matches).
-* **Only one** `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
-* Students matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
+> * Exactly one of n/ or g/ must be present.
+>* Keywords/Group names are separated by spaces.
+>* The search is case-insensitive. e.g `hans` will match `Hans`.
+>* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
+>* Name search matches full words in the student’s name. e.g. `Han` will not match `Hans`.
+>* Group search matches full words in group names assigned to the student (no partial matches).
+>* **Only one** `g/` prefix may be present; to search multiple groups put the group names separated by spaces inside the single `g/` block (for example: `find g/CS1101S CS1231S`).
+>* Students matching at least one keyword will be returned (i.e. `OR` search).
+>  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
 #### Examples:
 * `find n/John` returns `john` and `John Doe`
@@ -518,7 +533,7 @@ EduTrack data are saved automatically as a JSON file at this file location:
 Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning"> :exclamation:  **Caution**  For ADVANCED users:
-If your changes to the data file makes its format invalid, Edutrack will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file makes its format invalid, EduTrack will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the EduTrack to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
