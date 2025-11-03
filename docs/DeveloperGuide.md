@@ -674,7 +674,13 @@ The remaining 80% of effort went into designing the multi-entity architecture, i
 
 Team size: 5
 
-1. 
+1. Improve UX for when user searches for results with no persons listed.
+
+Right now, the behaviour of certain commands like `findtag` is such that when there is supposed to be no search results returned, the view shows an empty list, where the command is successful and the result display says "0 persons listed!". The command box then clears and the user has to type the full command again.
+
+It may be a better UX for the user to receive an error message, and thus the command does not clear out, and the user does not have to type it all over again.
+
+
 
 2.
 
