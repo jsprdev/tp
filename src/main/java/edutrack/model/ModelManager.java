@@ -131,7 +131,6 @@ public class ModelManager implements Model {
             }
         }
 
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         // Refresh group list so UI/clients see newly added groups
         updateFilteredGroupList(PREDICATE_SHOW_ALL_GROUPS);
     }

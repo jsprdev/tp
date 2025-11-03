@@ -138,7 +138,7 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 
 #### Parameters:
 * `NAME` : Name of the student. Letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/) are allowed.
-* `PHONE_NUMBER` : Phone number of the student, only numeric characters are allowed.
+* `PHONE_NUMBER` : Phone number of the student. Digits, spaces, hyphens (-), and an optional '+' prefix are allowed. Must contain at least 3 digits. Examples: `91234567`, `9123 4567`, `+65 9123 4567`.
 * `EMAIL` : Email address of the student, must be in the format `local-part@domain`.
 * `ADDRESS` : Address of the student, can contain alphanumeric characters and spaces.
 * `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed.

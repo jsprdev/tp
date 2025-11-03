@@ -10,8 +10,9 @@ public class Phone {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should only contain numbers, and it should be at least 3 digits long";
-    public static final String VALIDATION_REGEX = "\\d{3,}";
+            "Phone numbers should only contain digits, spaces, hyphens, and an optional '+' prefix. "
+            + "Must have at least 3 digits.";
+    public static final String VALIDATION_REGEX = "^(\\+)?[\\d\\s-]{2,}$";
     public final String value;
 
     /**
@@ -31,7 +32,8 @@ public class Phone {
         if (test == null || test.isEmpty()) {
             return true; // Allow null/empty for optional field
         }
-        return test.matches(VALIDATION_REGEX);
+        int digitCount = (int) test.chars().filter(Character::isDigit).count();
+        return test.matches(VALIDATION_REGEX) && digitCount >= 3;
     }
 
     @Override

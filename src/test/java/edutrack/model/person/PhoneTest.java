@@ -21,15 +21,22 @@ public class PhoneTest {
 
         // invalid phone numbers
         assertFalse(Phone.isValidPhone(" ")); // spaces only
-        assertFalse(Phone.isValidPhone("91")); // less than 3 numbers
+        assertFalse(Phone.isValidPhone("91")); // less than 3 digits
         assertFalse(Phone.isValidPhone("phone")); // non-numeric
         assertFalse(Phone.isValidPhone("9011p041")); // alphabets within digits
-        assertFalse(Phone.isValidPhone("9312 1534")); // spaces within digits
+        assertFalse(Phone.isValidPhone("+")); // only plus sign
+        assertFalse(Phone.isValidPhone("+ - ")); // only special characters
+        assertFalse(Phone.isValidPhone("++65 1234 5678")); // multiple plus signs
 
         // valid phone numbers
-        assertTrue(Phone.isValidPhone("911")); // exactly 3 numbers
+        assertTrue(Phone.isValidPhone("911")); // exactly 3 digits
         assertTrue(Phone.isValidPhone("93121534"));
         assertTrue(Phone.isValidPhone("124293842033123")); // long phone numbers
+        assertTrue(Phone.isValidPhone("9312 1534")); // spaces within digits
+        assertTrue(Phone.isValidPhone("9312-1534")); // hyphens
+        assertTrue(Phone.isValidPhone("+65 91234567")); // international format with space
+        assertTrue(Phone.isValidPhone("+1-555-1234")); // international format with hyphens
+        assertTrue(Phone.isValidPhone("+65 9123 4567")); // multiple spaces
         assertTrue(Phone.isValidPhone("")); // empty string
     }
 
