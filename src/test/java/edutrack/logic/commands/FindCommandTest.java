@@ -1,6 +1,7 @@
 package edutrack.logic.commands;
 
 import static edutrack.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+import static edutrack.logic.commands.CommandTestUtil.assertCommandFailure;
 import static edutrack.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static edutrack.testutil.TypicalPersons.CARL;
 import static edutrack.testutil.TypicalPersons.ELLE;
@@ -56,12 +57,9 @@ public class FindCommandTest {
 
     @Test
     public void execute_zeroKeywords_noPersonFound() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
         NameContainsKeywordsPredicate predicate = preparePredicate(" ");
         FindCommand command = new FindCommand(predicate);
-        expectedModel.updateFilteredPersonList(predicate);
-        assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Collections.emptyList(), model.getFilteredPersonList());
+        assertCommandFailure(command, model, FindCommand.MESSAGE_NO_MATCHES);
     }
 
     @Test

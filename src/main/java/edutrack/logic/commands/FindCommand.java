@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 import edutrack.commons.util.ToStringBuilder;
 import edutrack.logic.Messages;
+import edutrack.logic.commands.exceptions.CommandException;
 import edutrack.model.Model;
 import edutrack.model.person.Person;
 
@@ -36,6 +37,8 @@ public class FindCommand extends Command {
             + "  " + COMMAND_WORD + " n/alice bob - Finds persons with 'alice' or 'bob' in their names\n"
             + "  " + COMMAND_WORD + " g/CS2103T - Finds persons in group 'CS2103T'";
 
+    public static final String MESSAGE_NO_MATCHES = "No persons match the given criteria.";
+
     private final Predicate<Person> predicate;
 
     public FindCommand(Predicate<Person> predicate) {
@@ -43,9 +46,16 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public CommandResult execute(Model model) {
+    public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+
+        int matched = (int) model.getFilteredPersonList().stream().filter(predicate).count();
+        if (matched == 0) {
+            throw new CommandException(MESSAGE_NO_MATCHES);
+        }
+
         model.updateFilteredPersonList(predicate);
+
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
     }
