@@ -719,9 +719,15 @@ While an unsuccessful `group/delete`, for example, shows this:
 
 In the future, it will be a much better user experience to have error messages standardised, to make them more effective in helping users.
 
-5.
+5. **Better UI/UX handling of cases where inputs to attributes are too long**
 
-6.
+Right now, we have a immediate fix of handling overly-long inputs to student attributes by limiting the number of characters to the fields, as well as allowing the text to wrap.
+
+In the future, we can explore better ways to handle such cases, because we do not want to overzealously validate the input. For instance, in some extreme-but-valid cases, there may be a real need in the future for tutors to input a very, very long note, that well exceeds our current character limit. 
+
+Similarly, in the future, phone numbers may (with a non-zero chance) evolve to become more than 100 characters long.
+
+6. 
 
 7.
 
