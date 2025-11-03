@@ -239,7 +239,7 @@ Format: `findtag t/TAG`
 >* Only one tag can be searched at a time.
 >* Only students with the exact tag will be returned.
 >* Tag names may include alphanumeric characters, hyphens (-), underscores (_), and slashes (/).
->* If you try to `findtag` a tag where no persons are found, the entire view will show an empty list.
+>* If you try to `findtag` a tag where no students are found, the entire view will show an empty list.
 
 #### Examples:
 * `findtag t/friends` returns all students tagged with `friends`
@@ -577,9 +577,9 @@ _Details coming soon ..._
 
 * GUI — Graphical User Interface: the visual, mouse-driven parts of the application (windows, buttons, labels). In EduTrack the GUI is implemented using JavaFX and complements the keyboard command box.
 * Prefix — A short label ending with `/` used to identify command parameters (e.g. `n/`, `t/`, `g/`).
-* Filtered list — A view of the full person list that only shows persons matching a predicate; many commands (e.g. `find`) update the filtered list.
-* Predicate — A rule (boolean test) used to decide whether a person should be included in a filtered list (e.g. "name contains keyword").
-* Index — A 1-based number shown next to each person in the UI; many commands (e.g. `edit`, `delete`) operate on the person at that index in the currently displayed (filtered) list.
+* Filtered list — A view of the full student list that only shows students matching a predicate; many commands (e.g. `find`) update the filtered list.
+* Predicate — A rule (boolean test) used to decide whether a student should be included in a filtered list (e.g. "name contains keyword").
+* Index — A 1-based number shown next to each student in the UI; many commands (e.g. `edit`, `delete`) operate on the student at that index in the currently displayed (filtered) list.
 * JSON — JavaScript Object Notation, a text format used for saving EduTrack data to disk.
 * Tag — A short label used to categorise a student (no spaces, allowed characters: alphanumeric, `-`, `_`, `/`). Tags are case-insensitive for matching and searches (e.g. `t/Friends` matches `friends`).
 * Group — A central entity used to group students (no spaces, allowed characters: alphanumeric, `-`, `_`, `/`). Group names are case-insensitive for matching and searches.
