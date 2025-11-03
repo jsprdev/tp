@@ -14,6 +14,7 @@ public class GroupCreateCommandParser implements Parser<GroupCreateCommand> {
     @Override
     public GroupCreateCommand parse(String args) throws ParseException {
         ArgumentMultimap map = ArgumentTokenizer.tokenize(args, PREFIX_GROUP);
+        map.verifyNoDuplicatePrefixesFor(PREFIX_GROUP);
         String raw = map.getValue(PREFIX_GROUP).orElse("").trim();
         if (raw.isEmpty()) {
             throw new ParseException("You have to input a group name!");
