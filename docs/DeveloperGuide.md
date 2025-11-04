@@ -17,6 +17,15 @@ title: Developer Guide
 * Documentation:
     * [Jekyll](https://jekyllrb.com/) - Static site generator for project documentation
     * [PlantUML](https://plantuml.com/) - Automatic generation of UML diagrams from text descriptions.
+* AI tools were used overall to do code quality checks for formatting and aesthetic issues, as well as consulting of ideas for how to approach a certain task. These tools were also used to explore further potential test case partitions.
+   -  Such tools include GitHub Copilot, Cursor, Codex, Claude
+
+--------------------------------------------------------------------------------------------------------------------
+
+#### **Notes**
+
+> Internally, we have a class named `AddressBook`.
+> Please do not confuse this with the reference to our product name, which is "EduTrack".
 
 --------------------------------------------------------------------------------------------------------------------
 
