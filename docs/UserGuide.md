@@ -75,7 +75,7 @@ Ensure you have Java `17` or above installed in your Computer.<br>
 
 ![Ui](images/Ui.png)
 
-    The data you see here is the sample data that comes with the app.
+> The data you see here is the sample data that comes with the app.
 
 7. To do things in EduTrack, you have to type in certain commands into the main command box, and hit Enter.
    <br><br>Refer to the [Features](#features) below for the details of all commands that you can use.
