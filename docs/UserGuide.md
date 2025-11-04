@@ -165,7 +165,7 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 > + All specified groups and tags must already exist in the system.
 > + You can add multiple groups by entering `g/GROUP_NAME` multiple times, as seen in the example.
 > + Groups and tags must follow their respective naming conventions (see [group/create](#create-group-groupcreate) and [tag/create](#create-tag-tagcreate) for details).
-> + Duplicate students are not allowed in the address book. A duplicate is defined as a student with the same name as an existing student (case-insensitive). 
+> + Duplicate students are not allowed in the address book. A duplicate is defined as a student with the same name as an existing student (case-insensitive).
 
 #### Example usage:
 * `add n/John Doe`
@@ -285,7 +285,7 @@ Format: `delete INDEX`
 
 Clears all the data in EduTrack, useful for starting afresh.
 
-Format: 
+Format:
 - `clear` (on first use)
 - `clear confirm` (after already typing `clear` once and hitting 'Enter')
 
@@ -296,7 +296,7 @@ Format:
 > - After you type `clear`, if you type anything else other than `clear confirm`, it resets the clearing workflow and you have to start over.
 
 #### Example:
-`clear` followed by `clear confirm` clears the list 
+`clear` followed by `clear confirm` clears the list
 ![result for 'clear'](images/clear.png)
 ![result for 'clear confirm'](images/clearconfirm.png)
 
