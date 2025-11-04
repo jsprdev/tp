@@ -76,7 +76,7 @@ Ensure you have Java `17` or above installed in your Computer.<br>
 
 6. Enter the command `java -jar edutrack.jar` to run the application. Make sure the filename you downloaded matches exactly!<br>
 
-   Your screen should have a window pop up that looks lispoke this below:
+   Your screen should have a window pop up that looks like this below:
 
 ![Ui](images/Ui.png)
 
