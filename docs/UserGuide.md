@@ -160,6 +160,8 @@ The table below summarises the constraints for each parameter used in commands.
 
 ## Commands
 
+>Refer to the [Parameters Constraints](#parameter-constraints) or [Command Summary](#command-summary) table for additional information about our commands!
+
 ### Help page: `help`
 
 Shows a message explaining how to access the help page (this page).
