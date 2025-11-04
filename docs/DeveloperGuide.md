@@ -788,7 +788,25 @@ This enhancement aligns with our target user profile (tutors managing multiple s
 
 10. **Improve handling of duplicate phone numbers and emails across different students**
 
-Currently, EduTrack allows multiple students to share the same phone number or email address without any warnings or restrictions.
+Right now, for two unique students, our program allows them to have fields that are the same.
+
+For example, I can have a student
+
+> Name: John Tan
+> Phone: 100
+> Email: john@gmail.com
+> ... (other fields)
+
+as well as a student
+
+> Name: John Lim
+> Phone: 100
+> Email: john@gmail.com
+> ... (other fields)
+
+We know intuively that two distinct students cannot have the same phone number or the exact same email address, as everyone is expected to have a unique and distinct phone number.
+
+Yet, in our current application, users are allowed to add distinct students (with different names) but yet have exact same phone numbers, emails, address.
 
 In the future, we plan to add optional validation warnings (not hard errors) when duplicate address, phone numbers or emails are detected during `add` or `edit` command execution. The system would display a warning message such as:
 
