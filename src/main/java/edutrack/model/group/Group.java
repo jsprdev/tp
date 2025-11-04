@@ -11,9 +11,9 @@ public class Group {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Group names should be alphanumeric, may include '-', '_' or '/', "
-            + "and must not exceed 100 characters";
+            + "and must not exceed 50 characters";
     public static final String VALIDATION_REGEX = "[\\p{Alnum}_\\-/]+";
-    public static final int MAX_GROUP_LENGTH = 100;
+    public static final int MAX_GROUP_LENGTH = 50;
 
     public final String groupName;
 
@@ -32,7 +32,7 @@ public class Group {
      * Returns true if a given string is a valid group name.
      */
     public static boolean isValidGroupName(String test) {
-        return test.matches(VALIDATION_REGEX) && test.length() <= MAX_GROUP_LENGTH;
+        return test.matches(VALIDATION_REGEX);
     }
 
     @Override
