@@ -51,6 +51,7 @@ If you type fast, you can handle and manage all your students across your differ
 * [Known issues](#known-issues)
 * [Command summary](#command-summary)
 * [Glossary](#glossary)
+
 --------------------------------------------------------------------------------------------------------------------
 
 At any point in time, if you encounter any terms that you do not understand, consider checking out our Glossary section for a brief explanation!
