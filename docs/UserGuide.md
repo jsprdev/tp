@@ -118,6 +118,19 @@ Ensure you have Java `17` or above installed in your Computer.<br>
     * This is because you may accidentally copy over hidden invalid characters.
 </div>
 
+### Parameter Constraints
+The table below summarises the constraints for each parameter used in commands.
+
+| Parameter | Prefix | Max Length | Format / Constraints                                                                                                                                                                                                                                                                                                             | 
+|-----------|--------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NAME      | n/     | 100        | Alphanumeric characters; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), or slashes (/); must not be blank                                                                                                                                                                           |
+| EMAIL     | e/     | 100        | Format: `local-part@domain`<br>- Local-part: alphanumeric + `+`, `_`, `.`, `-`; cannot start or end with a special character<br>- Domain: made out of domain labels separated by `.`, each label must start/end with alphanumeric characters, hyphens allowed internally, last label ≥2 chars<br>- Optional field (can be empty) |
+| PHONE     | p/     | 20         | Digits, spaces, hyphens (-), and optional '+' prefix; must contain at least 3 digits<br>- Optional field (can be empty)                                                                                                                                                                                                          |
+| ADDRESS   | a/     | 100        | Any printable characters; must not start with whitespace; must not be blank<br>- Optional field (can be empty)                                                                                                                                                                                                                   |
+| TAG       | t/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `tag/create`                                                                                                                                                    |
+| GROUP     | g/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `group/create`                                                                                                                                                  |
+| NOTE      | no/    | 100        | Any printable characters; must not start with whitespace or control character<br>- Optional field (can be empty)                                                                                                                                                                                                                 |
+
 #### Notes:
 
 > - #### Colour Coding
@@ -152,12 +165,12 @@ Adds a student to the address book.
 Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`
 
 #### Parameters:
-* `NAME` : Name of the student. Letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/) are allowed.
+* `NAME` : Name of the student. Must start with alphanumeric character; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/).
 * `PHONE_NUMBER` : Phone number of the student. Digits, spaces, hyphens (-), and an optional '+' prefix are allowed. Must contain at least 3 digits. Examples: `91234567`, `9123 4567`, `+65 9123 4567`.
-* `EMAIL` : Email address of the student, must be in the format `local-part@domain`.
-* `ADDRESS` : Address of the student, can contain alphanumeric characters and spaces.
-* `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed.
-* `TAG` : Tag(s) to be assigned to the student, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed.
+* `EMAIL` : Email address of the student, must be in the format `local-part@domain`. Optional field.
+* `ADDRESS` : Address of the student, can contain any printable characters. Must not start with whitespace. Optional field.
+* `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
+* `TAG` : Tag(s) to be assigned to the student, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
 
 #### Notes:
 
@@ -318,7 +331,7 @@ Format: `group/create g/GROUP_NAME`
 
 >* `GROUP_NAME` refers to the name you wish to assign to the group.
 >* `GROUP_NAME` is case-insensitive and acceptable characters are alphanumeric, hyphens (-), underscores (_), and slashes (/).
->* `GROUP_NAME` has a maximum length of 100 characters.
+>* `GROUP_NAME` has a maximum length of 50 characters.
 >* Spaces are not allowed.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -380,7 +393,7 @@ Format: `tag/create t/TAG_NAME`
 #### Notes:
 >* `TAG_NAME` refers to the name you wish to assign to the tag.
 >* `TAG_NAME` is case-insensitive and acceptable characters are alphanumeric, hyphens (-), underscores (_), and slashes (/).
->* `TAG_NAME` has a maximum length of 100 characters.
+>* `TAG_NAME` has a maximum length of 50 characters.
 >* Spaces are not allowed.
 
 <div markdown="block" class="alert alert-info">
@@ -388,7 +401,7 @@ Format: `tag/create t/TAG_NAME`
 
 * Allowed characters: letters, digits, hyphen (-), underscore (_), slash (/).
 * No spaces are allowed — use `_` or `-` instead.
-* Maximum length: 100 characters.
+* Maximum length: 50 characters.
 * Matching is case-insensitive (e.g. `friends` == `Friends`).
 
 Use these rules when creating tags or groups (commands: `tag/create`, `group/create`).
@@ -561,31 +574,31 @@ _Details coming soon ..._
 
 ## Command Summary
 
-| Action                  | Description                                 | Format / Example                                                                                                                                                                                     |
-|-------------------------|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action                  | Description                                 | Format / Example                                                                                                                                                                             |
+|-------------------------|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**                 | Add a student to the list.                  | `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`   <br><br> Example: `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd g/CS2103T t/good_at_uml` |
-| **Clear**               | Removes all stored data.                    | `clear`                                                                                                                                                                                              |
-| **Delete**              | Deletes student from EduTrack.              | `delete INDEX`<br><br>Example: `delete 3`                                                                                                                                                            |
-| **Edit**                | Edit an existing student.                   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]` <br><br> Example: `edit 2 n/James Lee e/jameslee@example.com`                                                                     |
-| **Find**                | Locate students by keywords in their names. | `find n/KEYWORD [MORE_KEYWORDS]...`<br><br>Example: `find n/James Jake`                                                                                                                              |
-| **Find by Group**       | Find all students in a specific group.      | `find g/GROUP [MORE_GROUPS]...`<br><br>Example: `find g/CS2103T`                                                                                                                                     |
-| **Find by Tag**         | Find students with a specific tag.          | `findtag t/TAG`<br><br>Example: `findtag t/friends`                                                                                                                                                  |
-| **Create Group**        | Make a new group.                           | `group/create g/GROUP`<br><br>Example: `group/create g/CS2103T`                                                                                                                                      |
-| **Delete Group**        | Remove an existing group.                   | `group/delete g/GROUP`<br><br>Example: `group/delete g/CS2103T`                                                                                                                                      |
-| **Assign to Group**     | Assign students to a group.                 | `group/assign INDEX [MORE_INDEXES]... g/GROUP_NAME`<br><br>Example: `group/assign 1 2 g/CS2103T`                                                                                                     |
-| **Unassign from Group** | Remove students from a group.               | `group/unassign INDEX [MORE_INDEXES]... g/GROUP_NAME`<br><br>Example: `group/unassign 1 2 g/CS2103T`                                                                                                 |
-| **List Group**          | Show all existing groups.                   | `group/list`                                                                                                                                                                                         |
-| **Create Tag**          | Make a new tag.                             | `tag/create t/TAG`<br><br>Example: `tag/create t/needs_help`                                                                                                                                         |
-| **Delete Tag**          | Remove an existing tag.                     | `tag/delete t/TAG`<br><br>Example: `tag/delete t/needs_help`                                                                                                                                         |
-| **Assign Tag**          | Assign a tag to a student.                  | `tag/assign INDEX t/TAG_NAME`<br><br>Example: `tag/assign 1 t/needs_help`                                                                                                                            |
-| **Unassign Tag**        | Remove a tag from a student.                | `tag/unassign INDEX t/TAG_NAME`<br><br>Example: `tag/unassign 1 t/needs_help`                                                                                                                        |
-| **List Tag**            | Show all existing tags.                     | `tag/list`                                                                                                                                                                                           |
-| **Stats**               | Show all student statistics.                | `stats`                                                                                                                                                                                              |
-| **List**                | Show all students.                          | `list`                                                                                                                                                                                               |
-| **Help**                | Display help information.                   | `help`                                                                                                                                                                                               |
-| **Sort**                | Sort all students alphabetically.           | `sort`                                                                                                                                                                                               |
-| **Create Note**         | Creates a note for specified student.       | `note/create INDEX no/NOTE`<br><br>Example: `note/create 3 no/Missed the past 3 deadlines. Needs more help with CS2100.`                                                                             |
-| **Delete Note**         | Deletes note attached to specified student. | `note/delete INDEX`<br><br>Example: `note/delete 3`                                                                                                                                                  |
+| **Clear**               | Removes all stored data.                    | `clear`                                                                                                                                                                                      |
+| **Delete**              | Deletes student from EduTrack.              | `delete INDEX`<br><br>Example: `delete 3`                                                                                                                                                    |
+| **Edit**                | Edit an existing student.                   | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]... [no/NOTE]` <br><br> Example: `edit 2 n/James Lee e/jameslee@example.com`                                        |
+| **Find**                | Locate students by keywords in their names. | `find n/KEYWORD [MORE_KEYWORDS]...`<br><br>Example: `find n/James Jake`                                                                                                                      |
+| **Find by Group**       | Find all students in a specific group.      | `find g/GROUP [MORE_GROUPS]...`<br><br>Example: `find g/CS2103T`                                                                                                                             |
+| **Find by Tag**         | Find students with a specific tag.          | `findtag t/TAG`<br><br>Example: `findtag t/friends`                                                                                                                                          |
+| **Create Group**        | Make a new group.                           | `group/create g/GROUP`<br><br>Example: `group/create g/CS2103T`                                                                                                                              |
+| **Delete Group**        | Remove an existing group.                   | `group/delete g/GROUP`<br><br>Example: `group/delete g/CS2103T`                                                                                                                              |
+| **Assign to Group**     | Assign students to a group.                 | `group/assign INDEX [MORE_INDEXES]... g/GROUP_NAME`<br><br>Example: `group/assign 1 2 g/CS2103T`                                                                                             |
+| **Unassign from Group** | Remove students from a group.               | `group/unassign INDEX [MORE_INDEXES]... g/GROUP_NAME`<br><br>Example: `group/unassign 1 2 g/CS2103T`                                                                                         |
+| **List Group**          | Show all existing groups.                   | `group/list`                                                                                                                                                                                 |
+| **Create Tag**          | Make a new tag.                             | `tag/create t/TAG`<br><br>Example: `tag/create t/needs_help`                                                                                                                                 |
+| **Delete Tag**          | Remove an existing tag.                     | `tag/delete t/TAG`<br><br>Example: `tag/delete t/needs_help`                                                                                                                                 |
+| **Assign Tag**          | Assign a tag to a student.                  | `tag/assign INDEX t/TAG_NAME`<br><br>Example: `tag/assign 1 t/needs_help`                                                                                                                    |
+| **Unassign Tag**        | Remove a tag from a student.                | `tag/unassign INDEX t/TAG_NAME`<br><br>Example: `tag/unassign 1 t/needs_help`                                                                                                                |
+| **List Tag**            | Show all existing tags.                     | `tag/list`                                                                                                                                                                                   |
+| **Stats**               | Show all student statistics.                | `stats`                                                                                                                                                                                      |
+| **List**                | Show all students.                          | `list`                                                                                                                                                                                       |
+| **Help**                | Display help information.                   | `help`                                                                                                                                                                                       |
+| **Sort**                | Sort all students alphabetically.           | `sort`                                                                                                                                                                                       |
+| **Create Note**         | Creates a note for specified student.       | `note/create INDEX no/NOTE`<br><br>Example: `note/create 3 no/Missed the past 3 deadlines. Needs more help with CS2100.`                                                                     |
+| **Delete Note**         | Deletes note attached to specified student. | `note/delete INDEX`<br><br>Example: `note/delete 3`                                                                                                                                          |
 
 
 ## Glossary
