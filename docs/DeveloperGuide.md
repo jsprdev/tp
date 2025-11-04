@@ -771,33 +771,6 @@ Right now, we are relying on colour to visually distuinguish between tags and gr
 In the future, it will be helpful to have a colorblind mode that helps those who suffer from colour deficiency use our app more effectively, given that some of them may have difficulty identifying which are tags and which are groups based on colour alone.
 
 
-9. **New attendance tracking feature to make program more cohesive**
+9.
 
-Right now, we are lacking a attendance-tracking feature, which will tie in nicely with the overarching aim of our product: to let tutors keep track of their students.
-
-In the future, adding this feature will be a way to make our program more cohesive.
-
-10. **Warning when duplicate fields are found in multiple persons for better user experience**
-
-Right now, for two unique students, our program allows them to have fields that are the same. 
-
-For example, I can have a student 
-
-> Name: John Tan
-> Phone: 100
-> Email: john@gmail.com
-> ... (other fields)
-
-as well as a student
-
-> Name: John Lim
-> Phone: 100
-> Email: john@gmail.com
-> ... (other fields)
-
-
-We know intuively that two distinct students cannot have the same phone number or the exact same email address, as everyone is expected to have a unique and distinct phone number.
-
-Yet, in our current application, users are allowed to add distinct students (with different names) but yet have exact same phone numbers, emails, address.
-
-In a future iteration, it will definitely be a good feature to give a warning when such entries are added, where students have duplicate phone numbers, emails, addresses.
+10.
