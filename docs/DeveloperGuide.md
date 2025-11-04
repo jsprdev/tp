@@ -24,7 +24,7 @@ title: Developer Guide
 
 #### **Notes**
 
-> Internally, we have a class named `AddressBook`.
+> Internally, we have reused file names from the AB-3 project, such as `AddressBook`. 
 > Please do not confuse this with the reference to our product name, which is "EduTrack".
 
 --------------------------------------------------------------------------------------------------------------------
