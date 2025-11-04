@@ -57,9 +57,10 @@ If you type fast, you can handle and manage all your students across your differ
 1. Java is a programming language that needs to be installed. If you don't have it, download it from the official Java website.
 
 Ensure you have Java `17` or above installed in your Computer.<br>
-   **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
+   **Mac users:** Ensure you have the precise Java version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-F14a-3/tp/releases).
+> .jar is referring to what the filename ends with
 
 3. Save the file to the folder you want to use to store all files related to EduTrack.
 
@@ -67,7 +68,7 @@ Ensure you have Java `17` or above installed in your Computer.<br>
    >* **Mac** / **Linux** users: search for 'Terminal'
    >* **Windows** users: search for 'Command Prompt'
 
-5. Enter the command `cd <FOLDER>` where you replace <FOLDER> with the folder name that you saved the jar file to.
+5. Enter the command `cd <FOLDER>` where you replace FOLDER with the folder name that you saved the jar file to.
 
 6. Enter the command `java -jar edutrack.jar` to run the application.<br>
 
