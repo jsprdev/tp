@@ -692,7 +692,7 @@ In the future, we may consider validating parameters for such cases of excessive
 
 2. **Standardise reference to "Person" class in all application user-facing messages**
 
-Right now, EduTrakc sometimes refers to the ocntacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
+Right now, EduTrack sometimes refers to the contacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
 
 Example: A successful `findtag` command on a tag with 2 students tagged, displays
 
