@@ -24,7 +24,7 @@ title: Developer Guide
 
 #### **Notes**
 
-> Internally, we have reused file names from the AB-3 project, such as `AddressBook`. 
+> Internally, we have reused file names from the AB-3 project, such as `AddressBook`.
 > Please do not confuse this with the reference to our product name, which is "EduTrack".
 
 --------------------------------------------------------------------------------------------------------------------
@@ -327,7 +327,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   * 2b1. System rejects the request to prevent duplicates.
 
     Use case ends.
-    
+
 * 2c. No name provided
   * 2c1. System asks the user to input a valid name.
 
