@@ -17,6 +17,15 @@ title: Developer Guide
 * Documentation:
     * [Jekyll](https://jekyllrb.com/) - Static site generator for project documentation
     * [PlantUML](https://plantuml.com/) - Automatic generation of UML diagrams from text descriptions.
+* AI tools were used overall to do code quality checks for formatting and aesthetic issues, as well as consulting of ideas for how to approach a certain task. These tools were also used to explore further potential test case partitions.
+   -  Such tools include GitHub Copilot, Cursor, Codex, Claude
+
+--------------------------------------------------------------------------------------------------------------------
+
+#### **Notes**
+
+> Internally, we have reused file names from the AB-3 project, such as `AddressBook`.
+> Please do not confuse this with the reference to our product name, which is "EduTrack".
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -129,12 +138,12 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data, which includes: 
+* stores the address book data, which includes:
   * All `Person` objects contained within a `UniquePersonList`.
-  * All `Group` objects contained within a `UniqueGroupList`. 
+  * All `Group` objects contained within a `UniqueGroupList`.
   * All `Tag` objects contained within a `UniqueTagList`.
 
-* stores the currently 'selected' `Person` objects (e.g., results of a search or filter command) as a separate `FilteredList<Person>`, exposed as an unmodifiable `ObservableList<Person>`.  
+* stores the currently 'selected' `Person` objects (e.g., results of a search or filter command) as a separate `FilteredList<Person>`, exposed as an unmodifiable `ObservableList<Person>`.
   This allows the UI to automatically update whenever the data in the list changes.
 
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
@@ -290,12 +299,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. No parameter provided.
   * 1a1. System prompts User to provide a parameter.
-    
+
     Use case ends.
 
 * 3a. No matching persons found
   * 3a1. System informs the User that no results were found.
-    
+
     Use case ends.
 
 **Use case: Create a Group or Tag**
@@ -311,17 +320,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions:**
 * 2a. Invalid group or tag name
   * 2a1. System rejects the request and shows an appropriate error message.
-    
+
     Use case ends.
 
 * 2b. Group or tag name already exists
   * 2b1. System rejects the request to prevent duplicates.
-    
+
     Use case ends.
-    
+
 * 2c. No name provided
   * 2c1. System asks the user to input a valid name.
-    
+
     Use case ends.
 
 **Use case: Assign Persons to a Group or Tag**
@@ -342,15 +351,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions:**
 - 2a. The specified group or tag does not exist
   - 2a1. System informs the user that the group is invalid.
-    
+
     Use case ends.
 - 3a. One or more person references are invalid
   - 3a1. System informs the user which entries are invalid.
-    
+
     Use case ends.
 - 4a. Some persons are already assigned to the group or tag
   - 4a1. System informs the user about the duplicates and rejects the assignment.
-    
+
     Use case ends.
 
 **Use case: Unassign a Person from a Group or Tag**
@@ -692,7 +701,7 @@ In the future, we may consider validating parameters for such cases of excessive
 
 2. **Standardise reference to "Person" class in all application user-facing messages**
 
-Right now, EduTrakc sometimes refers to the ocntacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
+Right now, EduTrack sometimes refers to the contacts / objects being added or listed (or any equivalent operation acting on the Person class) as "persons"
 
 Example: A successful `findtag` command on a tag with 2 students tagged, displays
 
@@ -717,7 +726,7 @@ Currently, some commands have inconsistent error messages.
 Example:
 
 An unsuccessful `add` command shows this in the result display:
->Invalid command format! 
+>Invalid command format!
 >
 >add: Adds a person to the address book. Parameters: n/NAME [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]... [g/GROUP]...
 Example: add n/John Doe p/98765432 e/johnd@example.com a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney g/CS2103T g/CS2101
@@ -733,7 +742,7 @@ In the future, it will be a much better user experience to have error messages s
 
 Right now, we have a immediate fix of handling overly-long inputs to student attributes by limiting the number of characters to the fields, as well as allowing the text to wrap.
 
-In the future, we can explore better ways to handle such cases, because we do not want to overzealously validate the input. For instance, in some extreme-but-valid cases, there may be a real need in the future for tutors to input a very, very long note, that well exceeds our current character limit. 
+In the future, we can explore better ways to handle such cases, because we do not want to overzealously validate the input. For instance, in some extreme-but-valid cases, there may be a real need in the future for tutors to input a very, very long note, that well exceeds our current character limit.
 
 Similarly, in the future, phone numbers may (with a non-zero chance) evolve to become more than 100 characters long.
 
@@ -788,7 +797,25 @@ This enhancement aligns with our target user profile (tutors managing multiple s
 
 10. **Improve handling of duplicate phone numbers and emails across different students**
 
-Currently, EduTrack allows multiple students to share the same phone number or email address without any warnings or restrictions.
+Right now, for two unique students, our program allows them to have fields that are the same.
+
+For example, I can have a student
+
+> Name: John Tan
+> Phone: 100
+> Email: john@gmail.com
+> ... (other fields)
+
+as well as a student
+
+> Name: John Lim
+> Phone: 100
+> Email: john@gmail.com
+> ... (other fields)
+
+We know intuively that two distinct students cannot have the same phone number or the exact same email address, as everyone is expected to have a unique and distinct phone number.
+
+Yet, in our current application, users are allowed to add distinct students (with different names) but yet have exact same phone numbers, emails, address.
 
 In the future, we plan to add optional validation warnings (not hard errors) when duplicate address, phone numbers or emails are detected during `add` or `edit` command execution. The system would display a warning message such as:
 

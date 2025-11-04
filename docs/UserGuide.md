@@ -75,7 +75,7 @@ Ensure you have Java `17` or above installed in your Computer.<br>
 
 ![Ui](images/Ui.png)
 
-    The data you see here is the sample data that comes with the app.
+> The data you see here is the sample data that comes with the app.
 
 7. To do things in EduTrack, you have to type in certain commands into the main command box, and hit Enter.
    <br><br>Refer to the [Features](#features) below for the details of all commands that you can use.
@@ -121,7 +121,7 @@ Ensure you have Java `17` or above installed in your Computer.<br>
 ### Parameter Constraints
 The table below summarises the constraints for each parameter used in commands.
 
-| Parameter | Prefix | Max Length | Format / Constraints                                                                                                                                                                                                                                                                                                             | 
+| Parameter | Prefix | Max Length | Format /Constraints                                                                                                                                                                                                                                                                                                             |
 |-----------|--------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NAME      | n/     | 100        | Alphanumeric characters; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), or slashes (/); must not be blank                                                                                                                                                                           |
 | EMAIL     | e/     | 100        | Format: `local-part@domain`<br>- Local-part: alphanumeric + `+`, `_`, `.`, `-`; cannot start or end with a special character<br>- Domain: made out of domain labels separated by `.`, each label must start/end with alphanumeric characters, hyphens allowed internally, last label ≥2 chars<br>- Optional field (can be empty) |
@@ -178,7 +178,7 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 > + All specified groups and tags must already exist in the system.
 > + You can add multiple groups by entering `g/GROUP_NAME` multiple times, as seen in the example.
 > + Groups and tags must follow their respective naming conventions (see [group/create](#create-group-groupcreate) and [tag/create](#create-tag-tagcreate) for details).
-> + Duplicate students are not allowed in the address book. A duplicate is defined as a student with the same name as an existing student (case-insensitive). 
+> + Duplicate students are not allowed in the address book. A duplicate is defined as a student with the same name as an existing student (case-insensitive).
 
 #### Example usage:
 * `add n/John Doe`
@@ -298,7 +298,7 @@ Format: `delete INDEX`
 
 Clears all the data in EduTrack, useful for starting afresh.
 
-Format: 
+Format:
 - `clear` (on first use)
 - `clear confirm` (after already typing `clear` once and hitting 'Enter')
 
@@ -309,7 +309,7 @@ Format:
 > - After you type `clear`, if you type anything else other than `clear confirm`, it resets the clearing workflow and you have to start over.
 
 #### Example:
-`clear` followed by `clear confirm` clears the list 
+`clear` followed by `clear confirm` clears the list
 ![result for 'clear'](images/clear.png)
 ![result for 'clear confirm'](images/clearconfirm.png)
 

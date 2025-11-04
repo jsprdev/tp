@@ -14,6 +14,20 @@
 
 * It is named `EduTrack` because it combines education and productivity, allowing tutors to track student attendance, details, and performance efficiently.
 
-## Credits
+## **Credits**
 
 This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+
+
+## **Acknowledgements**
+
+* Libraries used:
+    * [JavaFX](https://openjfx.io/) - GUI framework for building the user interface
+    * [JUnit5](https://junit.org/junit5/) - Unit testing framework for comprehensive test coverage
+* Build and development tools:
+    * [Gradle](https://gradle.org/) - Build automation and dependency management
+* Documentation:
+    * [Jekyll](https://jekyllrb.com/) - Static site generator for project documentation
+    * [PlantUML](https://plantuml.com/) - Automatic generation of UML diagrams from text descriptions.
+* AI tools were used overall to do code quality checks for formatting and aesthetic issues, as well as consulting of ideas for how to approach a certain task. These tools were also used to explore further potential test case partitions.
+   -  Such tools include GitHub Copilot, Cursor, Codex, Claude
