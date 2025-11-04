@@ -12,6 +12,14 @@ import edutrack.logic.parser.exceptions.ParseException;
 import edutrack.model.person.GroupNameContainsKeywordsPredicate;
 import edutrack.model.person.NameContainsKeywordsPredicate;
 
+/*
+ AI Code Reuse Declaration:
+ * Portions of this code were refined with assistance from ChatGPT to handle
+ * single-parameter enforcement and simplify variable declarations using 'var'
+ * while debugging failing test cases. All logic was reviewed and verified
+ * to ensure correctness and consistency with EduTrack’s design.
+ */
+
 /**
  * Parses input arguments and creates a new FindCommand object
  */
