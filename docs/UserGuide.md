@@ -123,15 +123,15 @@ Ensure you have Java `17` or above installed in your Computer.<br>
 ### Parameter Constraints
 The table below summarises the constraints for each parameter used in commands.
 
-| Parameter | Prefix | Max Length | Format /Constraints                                                                                                                                                                                                                                                                                                             |
-|-----------|--------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NAME      | n/     | 100        | Alphanumeric characters; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), or slashes (/); must not be blank                                                                                                                                                                           |
+| Parameter | Prefix | Max Length | Format /Constraints                                                                                                                                                                                                                                                                                                   |
+|-----------|--------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NAME      | n/     | 100        | Alphanumeric characters; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), or slashes (/); must not be blank                                                                                                                                                                |
 | EMAIL     | e/     | 100        | Format: `local-part@domain`<br>- Local-part: alphanumeric + `+`, `_`, `.`, `-`; cannot start or end with a special character<br>- Domain: made out of domain labels separated by `.`, each label must start/end with alphanumeric characters, hyphens allowed internally, last label ≥2 chars<br>- Optional field (can be empty) |
-| PHONE     | p/     | 20         | Digits, spaces, hyphens (-), and optional '+' prefix; must contain at least 3 digits<br>- Optional field (can be empty)                                                                                                                                                                                                          |
-| ADDRESS   | a/     | 100        | Any printable characters; must not start with whitespace; must not be blank<br>- Optional field (can be empty)                                                                                                                                                                                                                   |
-| TAG       | t/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `tag/create`                                                                                                                                                    |
-| GROUP     | g/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `group/create`                                                                                                                                                  |
-| NOTE      | no/    | 100        | Any printable characters; must not start with whitespace or control character<br>- Optional field (can be empty)                                                                                                                                                                                                                 |
+| PHONE     | p/     | 20         | Digits, spaces, hyphens (-), and optional '+' prefix; must contain at least 3 digits<br>- Optional field (can be empty)                                                                                                                                                                                               |
+| ADDRESS   | a/     | 100        | Any printable characters; must not start with whitespace; must not be blank<br>- Optional field (can be empty)                                                                                                                                                                                                        |
+| TAG       | t/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `tag/create`<br/>- Optional field (can be empty)                                                                                                          |
+| GROUP     | g/     | 50         | Alphanumeric characters only; may include hyphens (-), underscores (_), or slashes (/); no spaces allowed<br>- Case-insensitive<br>- Must be created first using `group/create`<br/>- Optional field (can be empty)                                                                                                   |
+| NOTE      | no/    | 100        | Any printable characters; must not start with whitespace or control character<br>- Optional field (can be empty)                                                                                                                                                                                                      |
 
 #### Notes:
 
@@ -171,12 +171,29 @@ Adds a student to the address book.
 Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG]...`
 
 #### Parameters:
-* `NAME` : Name of the student. Must start with alphanumeric character; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/).
-* `PHONE_NUMBER` : Phone number of the student. Digits, spaces, hyphens (-), and an optional '+' prefix are allowed. Must contain at least 3 digits. Examples: `91234567`, `9123 4567`, `+65 9123 4567`.
-* `EMAIL` : Email address of the student, must be in the format `local-part@domain`. Optional field.
-* `ADDRESS` : Address of the student, can contain any printable characters. Must not start with whitespace. Optional field.
-* `GROUP` : Group(s) the student belongs to, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
-* `TAG` : Tag(s) to be assigned to the student, only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
+* `NAME` : Name of the student. 
+
+    Must start with alphanumeric character; may include letters (any language), digits, spaces, apostrophes ('), hyphens (-), dots (.), and slashes (/); must not be blank. Maximum length of 100 characters.
+
+* `PHONE_NUMBER` : Phone number of the student (Optional field)
+
+    Digits, spaces, hyphens (-), and an optional '+' prefix are allowed. Must contain at least 3 digits, at most 20 characters. Examples: `91234567`, `9123 4567`, `+65 9123 4567`.
+
+* `EMAIL` : Email address of the student (Optional field)
+  
+    It must be in the format `local-part@domain`. Maximum length of 100 characters.
+
+* `ADDRESS` : Address of the student (Optional field)
+
+    can contain any printable characters. Must not start with whitespace and at most 100 characters.
+
+* `GROUP` : Group(s) the student belongs to (Optional field)
+
+    Only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
+
+* `TAG` : Tag(s) to be assigned to the student (Optional field)
+
+  Only alphanumeric characters, hyphens (-), underscores (_), and slashes (/) are allowed. No spaces allowed. Maximum length 50 characters.
 
 #### Notes:
 
