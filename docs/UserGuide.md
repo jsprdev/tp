@@ -85,6 +85,8 @@ Ensure you have Java `17` or above installed in your Computer.<br>
    <br><br>Refer to the [Features](#features) below for the details of all commands that you can use.
    <br><br>You may also refer to the [Command summary](#Command-summary) below for a summary table of all possible commands.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 
@@ -156,6 +158,8 @@ The table below summarises the constraints for each parameter used in commands.
 > - #### Trimming of Leading Whitespace
 >   - In EduTrack, when you type a parameter with lots of whitespace at the start, all of that whitespace will be trimmed (deleted) when you enter the command
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Commands
@@ -172,6 +176,9 @@ Format: `help`
 
 #### Notes:
 > - You may use the keyboard shortcut `F1` to access the help window too.
+
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Adding a student: `add`
@@ -202,6 +209,9 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 * `add n/Kevin p/91234567 e/kevin@outlook.com a/123 Baker St g/CS2103T-F14a`
 * `add n/J.K. Rowling p/98765432 g/CS2100 g/CS2103T t/needs_help t/median`
 
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Listing all students: `list`
@@ -209,6 +219,9 @@ Format: `add n/NAME [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/GROUP]... [t/TAG].
 Shows a list of all students in the address book.
 
 Format: `list`
+
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Editing a student: `edit`
@@ -237,6 +250,9 @@ Examples:
 * `edit 3 p/91234567 g/CS2103T g/CS2100 t/Weak no/Needs more help in CS mods` - Edits the 3rd student to be in the CS2103T and CS2100 group with the `Weak` tag and a note.
 * `edit 2 n/Betsy Crower t/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
 * `edit 2 n/Betsy Crower g/` - Edits the name of the 2nd student to be `Betsy Crower` and clears all existing groups.
+
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Locating by name or group: `find`
@@ -270,6 +286,8 @@ By group: `find g/GROUP_NAME [MORE_GROUPS]...`
 * `find g/CS1101S CS1231S` returns all students in groups “CS1101S” or "CS1231S"
   ![result for 'find g/CS1101S CS1231S'](images/findCS1101SCS1231SResult.png)
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Locating by tag: `findtag`
@@ -291,6 +309,8 @@ Format: `findtag t/TAG`
 * `findtag t/needs_help` returns all students tagged with `needs_help`
 * `findtag t/upper-quartile` returns all students tagged with `upper-quartile`
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Deleting a student : `delete`
@@ -308,6 +328,9 @@ Format: `delete INDEX`
 * `list` followed by `delete 2` deletes the 2nd student in the address book.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
   <br>
+
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Clearing all students : `clear`
@@ -329,6 +352,8 @@ Format:
 ![result for 'clear'](images/clear.png)
 ![result for 'clear confirm'](images/clearconfirm.png)
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### Exiting the program : `exit`
 
@@ -336,6 +361,7 @@ Exits the program.
 
 Format: `exit`
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -351,6 +377,8 @@ Format: `group/create g/GROUP_NAME`
 >* `GROUP_NAME` has a maximum length of 50 characters.
 >* Spaces are not allowed.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### Delete Group: `group/delete`
 
@@ -358,12 +386,16 @@ Deletes an existing group and removes all group assignments from associated stud
 
 Format: `group/delete g/GROUP_NAME`
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### List Groups: `group/list`
 
 Displays all existing groups, allowing you to see all the groups you are managing.
 
 Format: `group/list`
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Assign Group: `group/assign`
@@ -382,6 +414,8 @@ Format: `group/assign INDEX [MORE_INDEXES...] g/GROUP_NAME`
 > * `group/assign 1 g/CS2103T` assigns the group `CS2103T` to the 1st student in the list.
 > * `group/assign 2 3 5 g/CS2040S` assigns the group `CS2040S` to the 2nd, 3rd, and 5th students in the list.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### Unassign Group: `group/unassign`
 
@@ -398,6 +432,8 @@ Format: `group/unassign INDEX [MORE_INDEXES]... g/GROUP_NAME`
 #### Examples:
 > * `group/unassign 1 g/CS2103T` removes the group `CS2103T` from the 1st student in the list.
 > * `group/unassign 2 3 g/CS2040S` removes the group `CS2040S` from the 2nd and 3rd students in the list.
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -429,6 +465,8 @@ Use these rules when creating tags or groups (commands: `tag/create`, `group/cre
 * Tags and groups are displayed as small labels beside a student's name and details.
 * Tags are shown in a darker cyan colour and groups are shown in a lighter cyan colour; otherwise they appear in the same label style.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### Delete Tag: `tag/delete`
 
@@ -436,12 +474,16 @@ Deletes an existing tag and removes all tag assignments from associated students
 
 Format: `tag/delete t/TAG_NAME`
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### List Tags: `tag/list`
 
 Displays all existing tags.
 
 Format: `tag/list`
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Assign Tag: `tag/assign`
@@ -462,6 +504,8 @@ Format: `tag/assign INDEX t/TAG_NAME`
 > * `tag/assign 1 t/needs_help` assigns the tag `needs_help` to the 1st student in the list.
 > * `tag/assign 3 t/weak` assigns the tag `weak` to the 3rd student in the list.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 ### Unassign Tag: `tag/unassign`
 
@@ -479,6 +523,7 @@ Format: `tag/unassign INDEX t/TAG_NAME`
 > * `tag/unassign 1 t/needs_help` removes the tag `needs_help` from the 1st student in the list.
 > * `tag/unassign 3 t/weak` removes the tag `weak` from the 3rd student in the list.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Viewing Statistics: `stats`
@@ -504,6 +549,9 @@ Format: `stats`
 #### Example:
 `stats` on the sample data that comes with the app shows the following
 ![result for 'stats'](images/stats.png)
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Sorting: `sort`
@@ -518,6 +566,7 @@ Format: `sort`
 > * Sorting always applies to the full student list rather than the current filtered view.
 > * Sorting will reset the view to show all students instead of only the filtered results.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -530,6 +579,9 @@ Format: `note/create INDEX no/NOTE_CONTENT`
 #### Notes:
 > * Each student can have only one note attached. If a note already exists for the student, it will be overwritten.
 > * `NOTE_CONTENT` can contain any characters, including spaces and special characters.
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Delete notes: `note/delete`
@@ -541,6 +593,8 @@ Format: `note/delete INDEX`
 #### Notes:
 > * This command does nothing if the student has no note attached, instead it will simply inform you that there is no note to delete.
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Other functionality
@@ -550,6 +604,8 @@ Format: `note/delete INDEX`
 EduTrack data are saved automatically to your computer after any command that changes the data.
 
 There is no need to save manually.
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -566,11 +622,15 @@ If your changes to the data file makes its format invalid, EduTrack will discard
 Furthermore, certain edits can cause the EduTrack to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ### Archiving data files `[coming in v2.0]`
 
 _Details coming soon ..._
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -578,6 +638,17 @@ _Details coming soon ..._
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous EduTrack home folder.
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Known issues
+
+1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen.
+   * The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -609,6 +680,9 @@ _Details coming soon ..._
 | **Create Note**         | Creates a note for specified student.       | `note/create INDEX no/NOTE`<br><br>Example: `note/create 3 no/Missed the past 3 deadlines. Needs more help with CS2100.`                                                                     |
 | **Delete Note**         | Deletes note attached to specified student. | `note/delete INDEX`<br><br>Example: `note/delete 3`                                                                                                                                          |
 
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## Glossary
 
@@ -625,3 +699,5 @@ _Details coming soon ..._
 * Hex - A technical way of specifically identifying different colours digitally.
 
 
+
+<a href="#table-of-contents" style="font-size:14px;font-weight:normal">⬆️ Return to Table of Contents</a>
