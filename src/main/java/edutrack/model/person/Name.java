@@ -12,13 +12,15 @@ public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names should start with a letter/number and may include letters (any language), digits, spaces, "
-            + "apostrophes ('), hyphens (-), dots (.), or slashes (/). It should not be blank.";
+            + "apostrophes ('), hyphens (-), dots (.), or slashes (/). It should not be blank, "
+            + "and must not exceed 100 characters.";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{L}\\p{M}\\p{N}][\\p{L}\\p{M}\\p{N} '\\-./]*";
+    public static final int MAX_NAME_LENGTH = 100;
 
     public final String fullName;
 

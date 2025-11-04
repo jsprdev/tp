@@ -19,12 +19,9 @@ public class GroupCreateCommandParser implements Parser<GroupCreateCommand> {
         if (raw.isEmpty()) {
             throw new ParseException("You have to input a group name!");
         }
-        try {
-            Group g = new Group(raw);
-            return new GroupCreateCommand(g);
-        } catch (IllegalArgumentException e) {
-            throw new ParseException(e.getMessage());
-        }
+
+        Group group = ParserUtil.parseGroup(raw);
+        return new GroupCreateCommand(group);
     }
 }
 
